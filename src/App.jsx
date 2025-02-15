@@ -26,7 +26,6 @@ function App() {
   const [sidebarOn, setSidebarOn] = useState(false);
 
   const toggleSidebar = () => {
-    console.log("Toggling sidebar");
     setSidebarOn(!sidebarOn);
   };
   return (
