@@ -6,7 +6,7 @@ import { UserProviderWrapper } from "./context/UserContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <UserProviderWrapper>
+    <UserProviderWrapper >
       <App />
     </UserProviderWrapper>
   </StrictMode>

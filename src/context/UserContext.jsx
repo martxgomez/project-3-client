@@ -1,16 +1,26 @@
-//IMPORTS 
-import { createContext, useState } from "react"
+//IMPORTS
+import { createContext, useState } from "react";
 
 const UserContext = createContext();
 
-function UserProviderWrapper(props) {
-const [user, setUser]=useState()
-
-return(
-    <UserContext.Provider value= {{user, setUser}}>
-      {/* {props.children}  por ahora no*/}
-    </UserContext.Provider>
-)
-
+const userData ={
+  name: "Adrián",
+  email: "adrian@gmail.com"
 }
-export { UserContext, UserProviderWrapper};
+function UserProviderWrapper(props) {
+  const [user, setUser] = useState(UserContext);
+  
+  const login=()=> {
+    setUser(userData);
+  }
+  const logout=()=> {
+    setUser(null);
+  }
+
+  return (
+    <UserContext.Provider value={{ user, setUser, login, logout }}>
+      {props.children}
+    </UserContext.Provider>
+  );
+}
+export { UserContext, UserProviderWrapper, };

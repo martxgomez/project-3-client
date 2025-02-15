@@ -8,10 +8,10 @@ import { UserContext } from "../context/UserContext";
 import Logo from "../assets/logo-prueba.jpg";
 
 //COMPONENTS
-import MenuButton from "./MenuButton";
+import Menubutton from "./MenuButton";
 
-function Navbar({onClick}) {
-  const { user, setUser } = useContext(UserContext);
+function Navbar({ onClick }) {
+  const { user } = useContext(UserContext);
 
   if (!user) {
     return (
