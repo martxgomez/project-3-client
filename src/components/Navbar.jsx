@@ -12,10 +12,9 @@ import Menubutton from "./MenuButton";
 
 function Navbar({ onClick }) {
   const { user } = useContext(UserContext);
-
   if (!user) {
     return (
-      <div style={{ border: "red solid 1px" }}>
+      <div>
         <img src={Logo} alt="Logo prueba" />
         <NavLink to="/log-in">Log in</NavLink>
         <NavLink to="/sign-up">Sign up</NavLink>

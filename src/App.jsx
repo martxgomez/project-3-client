@@ -16,7 +16,7 @@ import AboutUs from "./pages/AboutUs";
 
 //HOOKS
 import { useState, useContext } from "react";
-import { UserContext } from "../context/UserContext";
+// import { UserContext } from "./context/UserContext";
 
 //COMPONENTS
 import Navbar from "./components/Navbar";
