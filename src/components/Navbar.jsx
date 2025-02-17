@@ -8,17 +8,16 @@ import { UserContext } from "../context/UserContext";
 import Logo from "../assets/logo-prueba.jpg";
 
 //COMPONENTS
-import MenuButton from "./MenuButton";
+import Menubutton from "./MenuButton";
 
-function Navbar({onClick}) {
-  const { user, setUser } = useContext(UserContext);
-
+function Navbar({ onClick }) {
+  const { user } = useContext(UserContext);
   if (!user) {
     return (
-      <div style={{ border: "red solid 1px" }}>
+      <div>
         <img src={Logo} alt="Logo prueba" />
-        <NavLink to="/log-in">Log in</NavLink>
-        <NavLink to="/sign-up">Sign up</NavLink>
+        <NavLink to="/log-in"> <button> Log in</button></NavLink>
+        <NavLink to="/sign-up"> <button>Sign up</button> </NavLink>
       </div>
     );
   } else
