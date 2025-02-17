@@ -11,13 +11,13 @@ import Logo from "../assets/logo-prueba.jpg";
 import Menubutton from "./MenuButton";
 
 function Navbar({ onClick }) {
-  const { user } = useContext(UserContext);
+  const { user, isLoggedIn } = useContext(UserContext);
   if (!user) {
     return (
       <div>
         <img src={Logo} alt="Logo prueba" />
-        <NavLink to="/log-in"> <button> Log in</button></NavLink>
-        <NavLink to="/sign-up"> <button>Sign up</button> </NavLink>
+        <NavLink to="/log-in"> <button> Inicia sesión</button></NavLink>
+        <NavLink to="/sign-up"> <button>Registrate</button> </NavLink>
       </div>
     );
   } else

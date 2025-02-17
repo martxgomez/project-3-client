@@ -3,10 +3,13 @@
 // import "./sidebar.css";
 
 //HOOKS
+import { useContext, useReducer } from "react";
 import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { UserContext } from "../context/UserContext";
 
 function Sidebar({ isOn }) {
+  const {logOut} = useContext(UserContext)
   return (
     <>
       <section id="sidebar" className={isOn ? "sidebar-on" : "sidebar-off"}>
@@ -25,7 +28,7 @@ function Sidebar({ isOn }) {
           </ul>
         </section>
         <section>
-          <Link to="/">Cerrar sesión</Link>
+          <Link to="/"><button onClick={logOut}>Cerrar sesión</button></Link>
         </section>
       </section>
     </>
