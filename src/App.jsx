@@ -1,35 +1,51 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+//STYLE
+// import "./App.css";
+
+//ROUTES
+import { Routes, Route } from "react-router-dom";
+import Homepage from "./pages/Homepage";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
+import Plandetails from "./pages/Plandetails";
+import Userpage from "./pages/Userpage";
+import UserHomepage from "./pages/UserHomepage";
+import EditProfile from "./pages/EditProfile";
+import CreatePlan from "./pages/CreatePlan";
+import Errorpage from "./pages/Errorpage";
+import AboutUs from "./pages/AboutUs";
+
+//HOOKS
+import { useState, useContext } from "react";
+// import { UserContext } from "./context/UserContext";
+
+//COMPONENTS
+import Navbar from "./components/Navbar";
+import Sidebar from "./components/Sidebar";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [sidebarOn, setSidebarOn] = useState(false);
 
+  const toggleSidebar = () => {
+    setSidebarOn(!sidebarOn);
+  };
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Navbar onClick={toggleSidebar} />
+      <Sidebar isOn={sidebarOn} />
+      <Routes>
+        <Route path="/" element={<Homepage />}></Route>
+        <Route path="/sign-up" element={<Signup />}></Route>
+        <Route path="/log-in" element={<Login />}></Route>
+        <Route path="/details/:planId" element={<Plandetails />}></Route>
+        <Route path="/user-homepage/:userId" element={<UserHomepage />}></Route>
+        <Route path="/user-details/:userId" element={<Userpage />}></Route>
+        <Route path="/user-edit/:userId" element={<EditProfile />}></Route>
+        <Route path="/new-plan" element={<CreatePlan />}></Route>
+        <Route path="/*" element={<Errorpage />}></Route>
+        <Route path="/about" element={<AboutUs />}></Route>
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
