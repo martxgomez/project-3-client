@@ -16,8 +16,8 @@ function Navbar({ onClick }) {
     return (
       <div>
         <img src={Logo} alt="Logo prueba" />
-        <NavLink to="/log-in">Log in</NavLink>
-        <NavLink to="/sign-up">Sign up</NavLink>
+        <NavLink to="/log-in"> <button> Log in</button></NavLink>
+        <NavLink to="/sign-up"> <button>Sign up</button> </NavLink>
       </div>
     );
   } else

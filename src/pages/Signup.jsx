@@ -8,34 +8,30 @@ import axios from "axios";
 function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [image, setImage]=useState("");
   const [name, setName] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
-  const addUser = async function postUser() {
-    console.log(import.meta.env.VITE_API_URL);
-    
-    try {
-      const response = await axios.post(
-        `${import.meta.env.VITE_API_URL}/auth/signup`,
-        {
-          name,
-          email, 
-          password,
-          image,
-        }
-      );
-      
-      navigate("/log-in");
-    } catch (error) {
-      throw new Error("Error al crear nuevo usuario:", error);
-    }
+
+  const handleSignupSubmit = (e) => {
+    e.preventDefault();
+
+    const requestBody = { email, password, name };
+
+    axios
+      .post(`${import.meta.env.VITE_API_URL}/auth/signup`, requestBody)
+      .then((response) => {
+        navigate("/log-in");
+      })
+      .catch((error) => {
+        const errorDescription = error.response.data.message;
+        setErrorMessage("Error al crear nuevo usuario:", errorDescription);
+      });
   };
 
   return (
     <div>
-      <form onSubmit={addUser}>
+      <form onSubmit={handleSignupSubmit}>
         <input
           type="text"
           placeholder="Nombre completo"
@@ -49,16 +45,10 @@ function Signup() {
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
-          type="text"
+          type="password"
           placeholder="Contraseña"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Imagen de perfil"
-          value={image}
-          onChange={(e) => setImage(e.target.value)}
         />
         <button type="submit">Crear cuenta</button>
       </form>
