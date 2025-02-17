@@ -13,7 +13,7 @@ function Login(props) {
   
   const navigate = useNavigate();
 
-  const { storeToken } = useContext(UserContext); 
+  const { storeToken, authUser } = useContext(UserContext); 
 
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
@@ -27,7 +27,7 @@ function Login(props) {
       .then((response) => {
         console.log('JWT token', response.data.authToken );
         storeToken(response.data.authToken);  
-      
+        authUser();
         navigate('/user-homepage/:userId');                                 
       })
       .catch((error) => {
