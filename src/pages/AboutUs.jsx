@@ -34,24 +34,24 @@ function AboutUs() {
         <a href="https://github.com/martxgomez">
           <img src={githubIcon} alt="Github Marta" /> <p>martxgomez</p>
         </a>
-        <a href="https://www.linkedin.com/in/tomas-martin-46496282/">
-          <img src={linkedinIcon} alt="Linkedin Tomás" /> <p>Tomás Martin</p>
+        <a href="https://www.linkedin.com/in/martagomezmartinez">
+          <img src={linkedinIcon} alt="Linkedin Marta" /> <p>Marta Gomez</p>
         </a>
-        <a href="mailto:tmartindsgn@gmail.com">
+        <a href="mailto:martagomez.code@gmail.com">
 
-          <img src={gmailIcon} alt="Gmail Tomás" /> <p>tmartindsgn@gmail.com</p>
+          <img src={gmailIcon} alt="Gmail Marta" /> <p>martagomez.code@gmail.com</p>
         </a>
       </article>
       <article>
         <h3>Roxana Ferramola</h3>
         <a href="https://github.com/rferramola">
-          <img src={githubIcon} alt="Github Roxana" /> <p>martxgomez</p>
+          <img src={githubIcon} alt="Github Roxana" /> <p>rferramola</p>
         </a>
-        <a href="https://www.linkedin.com/in/tomas-martin-46496282/">
-          <img src={linkedinIcon} alt="Linkedin Tomás" /> <p>Tomás Martin</p>
+        <a href="https://www.linkedin.com/in/rferramola/">
+          <img src={linkedinIcon} alt="Linkedin Roxana" /> <p>Roxana Ferramola</p>
         </a>
-        <a href="mailto:tmartindsgn@gmail.com">
-          <img src={gmailIcon} alt="Gmail Tomás" /> <p>tmartindsgn@gmail.com</p>
+        <a href="mailto:ferramolafvm@gmail.com">
+          <img src={gmailIcon} alt="Gmail Roxana" /> <p>ferramolafvm@gmail.com</p>
         </a>
       </article>
       <article>
