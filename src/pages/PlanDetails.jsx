@@ -4,19 +4,19 @@ function PlanDetails() {
   const [plan, setPlan] = useState()
  
 
-const getPlan = () => {
-  const storedToken = localStorage.getItem("authToken");
-  axios
-    .get(
-      `${import.meta.env.VITE_API_URL}/api/plans/${planId} `,
-      { headers: { Authorization: `Bearer ${storedToken}` } }
-    )
-    .then((response) => {
+// const getPlan = () => {
+//   const storedToken = localStorage.getItem("authToken");
+//   axios
+//     .get(
+//       `${import.meta.env.VITE_API_URL}/api/plans/${planId} `,
+//       { headers: { Authorization: `Bearer ${storedToken}` } }
+//     )
+//     .then((response) => {
     
-      setPlan(response.data);
-    })
-    .catch((error) => console.log(error));
-};
+//       setPlan(response.data);
+//     })
+//     .catch((error) => console.log(error));
+// };
 
   return (
     <>
