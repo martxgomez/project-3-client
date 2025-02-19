@@ -1,5 +1,5 @@
 //IMPORTS
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import axios from "axios";
 
 const UserContext = createContext();
@@ -40,8 +40,23 @@ function UserProviderWrapper(props) {
     }
   };
 
+  const removeToken = () => {
+    localStorage.removeItem("authToken");
+  };
+
+  const logOutUser = () => {
+    removeToken();
+    authUser();
+  };
+
+  useEffect(() => {
+    authUser();
+  }, []);
+
   return (
-    <UserContext.Provider value={{ isLoggedIn, isLoading, user, storeToken, authUser }}>
+    <UserContext.Provider
+      value={{ isLoggedIn, isLoading, user, storeToken, authUser, logOutUser }}
+    >
       {props.children}
     </UserContext.Provider>
   );
