@@ -1,7 +1,7 @@
 import githubIcon from "../assets/github-icon.svg";
 import gmailIcon from "../assets/gmail-icon.svg";
 import linkedinIcon from "../assets/linkedin-app-icon.svg";
-
+import Footer from "../components/Footer";
 function AboutUs() {
   return (
     <>
@@ -66,7 +66,7 @@ function AboutUs() {
           <img src={gmailIcon} alt="Gmail José" /> <p>inaciojosea13@gmail.com</p>
         </a>
       </article>
-  
+  <Footer/>
       
     </>
   );
