@@ -21,6 +21,8 @@ import { useState, useContext } from "react";
 //COMPONENTS
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
+import IsPrivate from "./components/isPrivate";
+import IsAnon from "./components/isAnon";
 
 function App() {
   const [sidebarOn, setSidebarOn] = useState(false);
@@ -33,16 +35,16 @@ function App() {
       <Navbar onClick={toggleSidebar} />
       <Sidebar isOn={sidebarOn} />
       <Routes>
-        <Route path="/" element={<Homepage />}></Route>
-        <Route path="/sign-up" element={<Signup />}></Route>
-        <Route path="/log-in" element={<Login />}></Route>
+        <Route path="/" element={<IsAnon> <Homepage /></IsAnon>}></Route>
+        <Route path="/sign-up" element={<IsAnon><Signup/></IsAnon>}></Route>
+        <Route path="/log-in" element={<IsAnon><Login/></IsAnon>}></Route>
         <Route path="/details/:planId" element={<Plandetails />}></Route>
-        <Route path="/user-homepage/:userId" element={<UserHomepage />}></Route>
-        <Route path="/user-details/:userId" element={<Userpage />}></Route>
-        <Route path="/user-edit/:userId" element={<EditProfile />}></Route>
-        <Route path="/new-plan" element={<CreatePlan />}></Route>
-        <Route path="/*" element={<Errorpage />}></Route>
-        <Route path="/about" element={<AboutUs />}></Route>
+        <Route path="/user-homepage/:userId" element={<IsPrivate><UserHomepage/></IsPrivate> } ></Route>
+        <Route path="/user-details/:userId" element={<IsPrivate><Userpage/></IsPrivate>}></Route>
+        <Route path="/user-edit/:userId" element={<IsPrivate><EditProfile/></IsPrivate>}></Route>
+        <Route path="/new-plan" element={<IsPrivate><CreatePlan/></IsPrivate>}></Route>
+        <Route path="/*" element={<Errorpage/>}></Route>
+        <Route path="/about" element={<AboutUs/>}></Route>
       </Routes>
     </>
   );
