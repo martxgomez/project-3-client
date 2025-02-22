@@ -13,6 +13,7 @@ import EditProfile from "./pages/EditProfile";
 import CreatePlan from "./pages/CreatePlan";
 import Errorpage from "./pages/Errorpage";
 import AboutUs from "./pages/AboutUs";
+import EditPlan from "./pages/EditPlan";
 
 //HOOKS
 import { useState, useContext } from "react";
@@ -39,6 +40,7 @@ function App() {
         <Route path="/sign-up" element={<IsAnon><Signup/></IsAnon>}></Route>
         <Route path="/log-in" element={<IsAnon><Login/></IsAnon>}></Route>
         <Route path="/details/:planId" element={<Plandetails/>}></Route>
+        <Route path="/edit-plan/:planId" element={<IsPrivate><EditPlan/></IsPrivate>}></Route>
         <Route path="/user-homepage/:userId" element={<IsPrivate><UserHomepage/></IsPrivate> } ></Route>
         <Route path="/user-details/:userId" element={<IsPrivate><Userpage/></IsPrivate>}></Route>
         <Route path="/user-edit/:userId" element={<IsPrivate><EditProfile/></IsPrivate>}></Route>
