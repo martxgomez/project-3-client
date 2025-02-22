@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom";
 
 function PlanCard({
-  id,
- title,
-  date,
-  location,
-  image
+  plan:{ _id,
+    title,
+     date,
+     location,
+     image}
+
 }) {
   return (
     <article>
-      <Link to={`/plans/${id}`} className="card">
-        <div key={id}>
+      <Link to={`/plans/${_id}`} className="card">
+        <div>
           <img
             src={image}
             alt={`Imagen de ${title}`}
