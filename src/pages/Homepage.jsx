@@ -8,6 +8,8 @@ function Homepage() {
     axios
       .get(`${import.meta.env.VITE_API_URL}/api/plans`)
       .then((response) => {
+        console.log(response.data);
+        
         setPlans(response.data);
       })
       .catch((error) => console.log(error));
