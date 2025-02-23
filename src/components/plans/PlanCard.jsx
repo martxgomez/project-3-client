@@ -11,7 +11,7 @@ function PlanCard({ plan }) {
 
   return (
     <article>
-      <Link to={`/plans/${_id}`} className="card">
+      <Link to={`/details/${_id}`} className="card">
         <div>
           <img src={image} alt={`Imagen de ${title}`} />
           <div>

@@ -1,21 +1,28 @@
+import axios from "axios";
+import PlanList from "../components/plans/PlanList";
+import { useEffect, useState } from "react";
+
 function UserHomepage() {
+  const [plans, setPlans] = useState([]);
+  const getAllPlans = () => {
+    const storedToken = localStorage.getItem("authToken");
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/api/plans`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then((response) => setPlans(response.data))
+      .catch((error) => console.log(error));
+  };
 
-const getAllPlans = () => {
-  
-  const storedToken = localStorage.getItem("authToken");
-  axios
-    .get(
-    `${import.meta.env.VITE_API_URL}/api/plans`,
-    { headers: { Authorization: `Bearer ${storedToken}` } }
-  )
-    .then((response) => setProjects(response.data))
-    .catch((error) => console.log(error));
-};
-
+  useEffect(() => {
+    getAllPlans();
+  }, []);
 
   return (
     <>
-      <h1>Hello</h1>
+      <div>
+        <PlanList plans={plans} />
+      </div>
     </>
   );
 }

@@ -7,7 +7,7 @@ import { useParams, Link } from "react-router-dom";
 function PlanDetails() {
   const { planId } = useParams();
   const [plan, setPlan] = useState();
-  const [loading, setLoading] = useState();
+  const [loading, setLoading] = useState(true);
   const {
     title,
     user,
@@ -31,6 +31,7 @@ function PlanDetails() {
         })
         .then((response) => {
           setPlan(response.data);
+          setLoading(false);
         })
         .catch((error) => console.log("Error getting data:", error));
       setLoading(false);
@@ -39,7 +40,8 @@ function PlanDetails() {
     getPlan();
   }, [planId]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p>Cargando...</p>;
+  if (!plan) return <p>Plan no encontrado</p>;
 
   const handleAttendance = (plan) => {
     plan.map((attendant) => {
