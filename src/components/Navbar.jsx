@@ -16,15 +16,21 @@ function Navbar({ onClick }) {
     return (
       <div>
         <img src={Logo} alt="Logo prueba" />
-        <NavLink to="/log-in"> <button> Inicia sesión</button></NavLink>
-        <NavLink to="/sign-up"> <button>Registrate</button> </NavLink>
+        <NavLink to="/log-in">
+          {" "}
+          <button> Inicia sesión</button>
+        </NavLink>
+        <NavLink to="/sign-up">
+          {" "}
+          <button>Registrate</button>{" "}
+        </NavLink>
       </div>
     );
   } else
-    <>
+    <div>
       <Menubutton onClick={onClick} />
       <img src={Logo} alt="Logo prueba" />
-    </>;
+    </div>;
 }
 
 export default Navbar;

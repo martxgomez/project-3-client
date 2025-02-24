@@ -24,6 +24,7 @@ import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import IsPrivate from "./components/isPrivate";
 import IsAnon from "./components/isAnon";
+import Footer from "./components/Footer";
 
 function App() {
   const [sidebarOn, setSidebarOn] = useState(false);
@@ -48,6 +49,7 @@ function App() {
         <Route path="/*" element={<Errorpage/>}></Route>
         <Route path="/about" element={<AboutUs/>}></Route>
       </Routes>
+      <Footer/>
     </>
   );
 }
