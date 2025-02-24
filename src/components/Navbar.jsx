@@ -26,11 +26,14 @@ function Navbar({ onClick }) {
         </NavLink>
       </div>
     );
-  } else
-    <div>
-      <Menubutton onClick={onClick} />
-      <img src={Logo} alt="Logo prueba" />
-    </div>;
+  } else {
+    return (
+      <div>
+        <Menubutton onClick={onClick} />
+        <img src={Logo} alt="Logo prueba" />
+      </div>
+    );
+  }
 }
 
 export default Navbar;

@@ -1,9 +1,12 @@
+import axios from "axios";
 import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../../context/UserContext";
 
 function PlanCard({ plan }) {
   const { _id, title, date, location, image } = plan;
-  const { userId } = useParams();
+
+  const { user } = useContext(UserContext);
 
   const formatDate = (prevDate) => {
     const date = new Date(prevDate);
@@ -12,8 +15,10 @@ function PlanCard({ plan }) {
 
   const handleJoinPlan = () => {
     const requestBody = { planId: _id };
+    const storedToken = localStorage.getItem("authToken");
+
     axios.put(
-      `${import.meta.env.VITE_API_URL}/auth/${userId}/my-plans`,
+      `${import.meta.env.VITE_API_URL}/auth/${user._id}/my-plans`,
       requestBody,
       {
         headers: { Authorization: `Bearer ${storedToken}` },

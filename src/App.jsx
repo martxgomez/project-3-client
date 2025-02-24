@@ -17,7 +17,7 @@ import EditPlan from "./pages/EditPlan";
 
 //HOOKS
 import { useState, useContext } from "react";
-// import { UserContext } from "./context/UserContext";
+import axios from "axios";
 
 //COMPONENTS
 import Navbar from "./components/Navbar";
@@ -28,28 +28,97 @@ import Footer from "./components/Footer";
 
 function App() {
   const [sidebarOn, setSidebarOn] = useState(false);
+  const [plans, setPlans] = useState([]);
 
   const toggleSidebar = () => {
     setSidebarOn(!sidebarOn);
   };
+
+  const getPublicPlans = () => {
+      
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/api/plans/public`)
+      .then((response) => {
+        setPlans(response.data);
+      })
+      .catch((error) => console.log(error));
+  };
+
   return (
     <>
       <Navbar onClick={toggleSidebar} />
       <Sidebar isOn={sidebarOn} />
       <Routes>
-        <Route path="/" element={<IsAnon> <Homepage /></IsAnon>}></Route>
-        <Route path="/sign-up" element={<IsAnon><Signup/></IsAnon>}></Route>
-        <Route path="/log-in" element={<IsAnon><Login/></IsAnon>}></Route>
-        <Route path="/details/:planId" element={<Plandetails/>}></Route>
-        <Route path="/edit-plan/:planId" element={<IsPrivate><EditPlan/></IsPrivate>}></Route>
-        <Route path="/user-homepage/:userId" element={<IsPrivate><UserHomepage/></IsPrivate> } ></Route>
-        <Route path="/user-details/:userId" element={<IsPrivate><Userpage/></IsPrivate>}></Route>
-        <Route path="/user-edit/:userId" element={<IsPrivate><EditProfile/></IsPrivate>}></Route>
-        <Route path="/new-plan" element={<IsPrivate><CreatePlan/></IsPrivate>}></Route>
-        <Route path="/*" element={<Errorpage/>}></Route>
-        <Route path="/about" element={<AboutUs/>}></Route>
+        <Route
+          path="/"
+          element={
+            <IsAnon>
+              {" "}
+              <Homepage getPublicPlans={getPublicPlans} plans={plans} />
+            </IsAnon>
+          }
+        ></Route>
+        <Route
+          path="/sign-up"
+          element={
+            <IsAnon>
+              <Signup />
+            </IsAnon>
+          }
+        ></Route>
+        <Route
+          path="/log-in"
+          element={
+            <IsAnon>
+              <Login />
+            </IsAnon>
+          }
+        ></Route>
+        <Route path="/details/:planId" element={<Plandetails />}></Route>
+        <Route
+          path="/edit-plan/:planId"
+          element={
+            <IsPrivate>
+              <EditPlan />
+            </IsPrivate>
+          }
+        ></Route>
+        <Route
+          path="/user-homepage/"
+          element={
+            <IsPrivate>
+              <UserHomepage getPublicPlans={getPublicPlans} />
+            </IsPrivate>
+          }
+        ></Route>
+        <Route
+          path="/user-details/:userId"
+          element={
+            <IsPrivate>
+              <Userpage />
+            </IsPrivate>
+          }
+        ></Route>
+        <Route
+          path="/user-edit/:userId"
+          element={
+            <IsPrivate>
+              <EditProfile />
+            </IsPrivate>
+          }
+        ></Route>
+        <Route
+          path="/new-plan"
+          element={
+            <IsPrivate>
+              <CreatePlan />
+            </IsPrivate>
+          }
+        ></Route>
+        <Route path="/*" element={<Errorpage />}></Route>
+        <Route path="/about" element={<AboutUs />}></Route>
       </Routes>
-      <Footer/>
+      <Footer />
     </>
   );
 }

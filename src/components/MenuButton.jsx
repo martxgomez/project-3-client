@@ -3,7 +3,7 @@
 // import "./MenuButton.css";
 
 function MenuButton({ onClick }) {
-  return <button className="" onClick={onClick}></button>;
+  return <button className="" onClick={onClick}>Boton</button>;
 }
 
 export default MenuButton;
