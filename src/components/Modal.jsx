@@ -1,11 +1,19 @@
 //STYLE
 import "./Modal.css";
 
-function Modal({ isOpen, closeModal }) {
-  if (!isOpen) return null;
+function Modal({ isOpen, onChangeModal }) {
+  const closeModal = () => {
+    onChangeModal(!isOpen);
+  };
+
+  if (!isOpen) {
+    return null;
+  }
+
   return (
     <div className="modal">
       <div className=" modal__container">
+        <button onClick={closeModal}>x</button>
         <h2>Quieres invitar a tus amigos?</h2>
         <p>Compartir enlace</p>
         <button>Copiar url</button>

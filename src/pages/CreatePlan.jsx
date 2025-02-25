@@ -109,7 +109,7 @@ function CreatePlan() {
         
 
         <button onClick={()=> setModalOpen(true)}  type="submit">Crear Plan</button>
-        <Modal isOpen={modalOpen} closeModal={()=> setModalOpen(false)}/>
+        <Modal isOpen={modalOpen} onChangeModal={(value) => setModalOpen(value)}/>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
     </div>
