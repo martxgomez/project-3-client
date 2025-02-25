@@ -2,9 +2,11 @@ import { useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
+import Modal from "../components/Modal"
 
 
 function CreatePlan() {
+  const[modalOpen, setModalOpen]= useState(false)
   const [title, setTitle] = useState("");
   const [details, setDetails] = useState("");
   const [date, setDate] = useState("");
@@ -36,7 +38,7 @@ function CreatePlan() {
       })
       .then((response) => {
         authUser();
-        navigate("/user-homepage/:userId");
+        // navigate("/user-homepage/:userId");
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
@@ -106,7 +108,8 @@ function CreatePlan() {
 
         
 
-        <button type="submit">Crear Plan</button>
+        <button onClick={()=> setModalOpen(true)}  type="submit">Crear Plan</button>
+        <Modal isOpen={modalOpen} closeModal={()=> setModalOpen(false)}/>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
     </div>
