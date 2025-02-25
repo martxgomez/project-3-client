@@ -44,6 +44,11 @@ function App() {
       .catch((error) => console.log(error));
   };
 
+  const formatDate = (prevDate) => {
+    const date = new Date(prevDate);
+    return date.toLocaleDateString("es-ES");
+  };
+
   return (
     <>
       <Navbar onClick={toggleSidebar} />
@@ -54,7 +59,7 @@ function App() {
           element={
             <IsAnon>
               {" "}
-              <Homepage getPublicPlans={getPublicPlans} plans={plans} />
+              <Homepage getPublicPlans={getPublicPlans} plans={plans} formatDate={formatDate} />
             </IsAnon>
           }
         ></Route>
@@ -74,7 +79,7 @@ function App() {
             </IsAnon>
           }
         ></Route>
-        <Route path="/details/:planId" element={<Plandetails />}></Route>
+        <Route path="/details/:planId" element={<Plandetails formatDate={formatDate} />}></Route>
         <Route
           path="/edit-plan/:planId"
           element={
@@ -87,8 +92,8 @@ function App() {
           path="/user-homepage/"
           element={
             <IsPrivate>
-              <UserHomepage getPublicPlans={getPublicPlans} />
-            </IsPrivate>
+              <UserHomepage getPublicPlans={getPublicPlans} formatDate={formatDate} />
+            </IsPrivate> 
           }
         ></Route>
         <Route
