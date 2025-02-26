@@ -10,7 +10,7 @@ function IsAnon({ children }) {
   if (isLoading) return <p>Cargando...</p>;
     
   if (isLoggedIn) {
-    return <Navigate to="/user-homepage/:userId"/>;
+    return <Navigate to="/user-homepage/"/>;
   } else {
     return children;
   }

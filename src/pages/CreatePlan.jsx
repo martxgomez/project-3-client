@@ -4,7 +4,6 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 
-
 function CreatePlan() {
   const [title, setTitle] = useState("");
   const [details, setDetails] = useState("");
@@ -17,7 +16,7 @@ function CreatePlan() {
 
   const navigate = useNavigate();
 
-  const { storeToken, authUser } = useContext(UserContext);
+  const { storeToken, authUser, user } = useContext(UserContext);
 
   const handleTitle = (e) => setTitle(e.target.value);
   const handleDetails = (e) => setDetails(e.target.value);
