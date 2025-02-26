@@ -18,7 +18,6 @@ function Userpage() {
       })
       .then((response) => {
         authUser();
-        console.log(authUser());
 
         setLoading(false);
       })
