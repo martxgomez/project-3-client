@@ -20,7 +20,7 @@ function Sidebar({ isOn }) {
               <NavLink to="/">Inicio</NavLink>
             </li>
             <li>
-              <NavLink to="/user-details/:userId">Mi perfil</NavLink>
+              <NavLink to="/user-details/">Mi perfil</NavLink>
             </li>
             <li>
               <NavLink to="/new-plan">Crea un plan</NavLink>
