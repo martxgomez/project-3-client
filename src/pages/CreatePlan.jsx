@@ -1,9 +1,9 @@
+//HOOKS
 import { useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import Modal from "../components/Modal"
-
 
 function CreatePlan() {
   const[modalOpen, setModalOpen]= useState(false)
@@ -18,7 +18,7 @@ function CreatePlan() {
 
   const navigate = useNavigate();
 
-  const { storeToken, authUser } = useContext(UserContext);
+  const { storeToken, authUser, user } = useContext(UserContext);
 
   const handleTitle = (e) => setTitle(e.target.value);
   const handleDetails = (e) => setDetails(e.target.value);
@@ -30,11 +30,20 @@ function CreatePlan() {
 
   const handleCreatePlanSubmit = (e) => {
     e.preventDefault();
-    const requestBody = { title, details, location, date, isPrivate, frecuency, image };
+    const requestBody = {
+      title,
+      details,
+      location,
+      date,
+      isPrivate,
+      frecuency,
+      image,
+      user: user._id,
+    };
     const storedToken = localStorage.getItem("authToken");
     axios
       .post(`${import.meta.env.VITE_API_URL}/api/plans`, requestBody, {
-        headers: { Authorization: `Bearer ${storedToken}` }
+        headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
         authUser();
@@ -63,50 +72,35 @@ function CreatePlan() {
         />
 
         <label>Fecha:</label>
-        <input
-          type="Date"
-          name="Date"
-          value={date}
-          onChange={handleDate}
-        />
+        <input type="Date" name="Date" value={date} onChange={handleDate} />
 
         <label>Es privado:</label>
-            <input
-              type="checkbox"
-              name="Is Private"
-              value={isPrivate}
-              onChange={handleIsPrivate}
-            />
+        <input
+          type="checkbox"
+          name="Is Private"
+          value={isPrivate}
+          onChange={handleIsPrivate}
+        />
 
         <label>Ubicación:</label>
-            <input
-              type="Location"
-              name="Location"
-              value={location}
-              onChange={handleLocation}
-            />
+        <input
+          type="text"
+          value={location}
+          onChange={handleLocation}
+          placeholder="Ej: Madrid"
+        />
 
         <label>Frecuencia:</label>
-            <select value={frecuency}
-              onChange={handleFrecuency}>
-              <option value = "">Seleccione una opción</option>
-              <option value = "daily">Diario</option>
-              <option value = "weekly">Semanal</option>
-              <option value = "monthly">Mensualmente</option>
-              <option value = "once">Una vez</option>
-              </select>
+        <select value={frecuency} onChange={handleFrecuency}>
+          <option value="">Seleccione una opción</option>
+          <option value="daily">Diario</option>
+          <option value="weekly">Semanal</option>
+          <option value="monthly">Mensualmente</option>
+          <option value="once">Una vez</option>
+        </select>
 
-              <label>Imagen:</label>
-            <input
-              type="file"
-              name=""
-              value={image}
-              onChange={handleImage}
-            />
-            
-            
-
-        
+        <label>Imagen:</label>
+        <input type="file" name="" value={image} onChange={handleImage} />
 
         <button onClick={()=> setModalOpen(true)}  type="submit">Crear Plan</button>
         <Modal isOpen={modalOpen} onChangeModal={(value) => setModalOpen(value)}/>

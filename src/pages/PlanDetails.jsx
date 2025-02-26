@@ -1,24 +1,17 @@
 //HOOKS
+import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 
+//COMPONENTS
+import Map from "../components/Map";
+
 //STYLE
 
-function PlanDetails() {
+function PlanDetails({formatDate}) {
   const { planId } = useParams();
   const [plan, setPlan] = useState();
   const [loading, setLoading] = useState(true);
-  const {
-    title,
-    user,
-    date,
-    location,
-    isPrivate,
-    image,
-    details,
-    attendance,
-    comments,
-  } = plan;
 
   //GET DATA
   useEffect(() => {
@@ -43,31 +36,52 @@ function PlanDetails() {
   if (loading) return <p>Cargando...</p>;
   if (!plan) return <p>Plan no encontrado</p>;
 
-  const handleAttendance = (plan) => {
-    plan.map((attendant) => {
-      for (let i = 0; i <= 3; i++) {
-        return (
-          <div key={attendant.id}>
-            <h3>{attendant.image}</h3>
-          </div>
-        );
-      }
-    });
+  const {
+    title,
+    user,
+    date,
+    location,
+    isPrivate,
+    image,
+    details,
+    attendance,
+    comments,
+  } = plan;
+
+  const handleAttendance = (attendance) => {
+    if (attendance.length === 0) {
+      return (
+        <>
+          <p>Aún no hay asistentes</p>
+        </>
+      );
+    } else {
+      const attendantsFilterArray = attendance.slice(0, 3);
+
+      return attendantsFilterArray.map((attendant) => (
+        <div key={attendant.id}>
+          <img src={attendant.image} alt={`Foto de ${attendant.name}`} />
+        </div>
+      ));
+    }
   };
 
   return (
     <>
       <section>
-        {" "}
         <h2>{title}</h2>
-        <h3>{user}</h3>
-        <h3>{date}</h3>
+        <h3>{user.name}</h3>
+        <h3>{formatDate(date)}</h3>
         <h3>{location}</h3>
         <h3>{isPrivate}</h3>
         <img src={image} alt={image} />
         <h3>Detalles:</h3>
         <p>{details}</p>
-        <p>{handleAttendance}</p>
+      </section>
+      {location && <Map location={location} />}
+      <section>
+        <h3>Asistentes:</h3>
+        <>{handleAttendance(plan.attendance)}</>
       </section>
 
       {/* por definir */}

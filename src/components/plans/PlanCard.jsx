@@ -3,16 +3,12 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 
-function PlanCard({ plan }) {
+function PlanCard({ plan, formatDate}) {
   const { _id, title, date, location, image } = plan;
 
   const { user } = useContext(UserContext);
 
-  const formatDate = (prevDate) => {
-    const date = new Date(prevDate);
-    return date.toLocaleDateString("es-ES");
-  };
-
+  
   const handleJoinPlan = () => {
     const requestBody = { planId: _id };
     const storedToken = localStorage.getItem("authToken");
