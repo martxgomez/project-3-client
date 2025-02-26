@@ -2,7 +2,7 @@ import axios from "axios";
 import PlanList from "../components/plans/PlanList";
 import { useEffect} from "react";
 
-function Homepage({getPublicPlans, plans}) {
+function Homepage({getPublicPlans, plans, formatDate}) {
 
 
 
@@ -13,7 +13,7 @@ function Homepage({getPublicPlans, plans}) {
   return (
     <>
       <div>
-        <PlanList plans={plans} />
+        <PlanList plans={plans} formatDate={formatDate} />
       </div>
     </>
   );

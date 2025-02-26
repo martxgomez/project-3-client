@@ -2,7 +2,7 @@ import axios from "axios";
 import PlanList from "../components/plans/PlanList";
 import { useEffect, useState } from "react";
 
-function UserHomepage() {
+function UserHomepage({ formatDate }) {
   const [plans, setPlans] = useState([]);
   const getAllPlans = () => {
     const storedToken = localStorage.getItem("authToken");
@@ -21,7 +21,7 @@ function UserHomepage() {
   return (
     <>
       <div>
-        <PlanList plans={plans} />
+        <PlanList plans={plans} formatDate={formatDate} />
       </div>
     </>
   );

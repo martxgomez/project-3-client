@@ -78,7 +78,7 @@ function EditPlan(){
       })
       .then((response) => {
         authUser();
-        navigate("/user-homepage/:userId");
+        navigate("/user-homepage/");
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
