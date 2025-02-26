@@ -1,10 +1,10 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 
 function EditPlan(){
-    const [title, setTitle] = useState("");
+  const [title, setTitle] = useState("");
   const [details, setDetails] = useState("");
   const [date, setDate] = useState("");
   const [location, setLocation] = useState("");
@@ -13,11 +13,12 @@ function EditPlan(){
   const [image, setImage] = useState();
   const [errorMessage, setErrorMessage] = useState(undefined);
 
-  // Hayq ue hacer una get request para recibir el plan 
+  // Hay que hacer una get request para recibir el plan 
 
   // useEffect ...
-
+    // axios.get -> API PLANS. El id del plan lo obtenemos de los params
   // dentro del useeffect rellenamos todos los campos con la respuesta de la api
+  // tenemos que obtener el token del localstorage para añadir el header
   /*
   setDetails()
   setLocation
@@ -25,8 +26,37 @@ function EditPlan(){
   ...
   */
 
-  const navigate = useNavigate();
   const {planId} = useParams();
+
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem("authToken");
+
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/api/plans/${planId}`, {
+        headers: { Authorization: `Bearer ${storedToken}` }
+      })
+      .then((response) => {
+        console.log(response.data);
+        
+        const planData = response.data;
+        setTitle(planData.title);
+        setDetails(planData.details);
+        setDate(planData.date);
+        setLocation(planData.location);
+        setIsPrivate(planData.isPrivate);
+        setFrecuency(planData.frecuency);
+        setImage(planData.image); 
+      })
+      .catch((error) => {
+        console.error("Error al cargar el plan:", error);
+        setErrorMessage("No se pudo cargar el plan.");
+      });
+  }, [planId]);
+
+
+  const navigate = useNavigate();
+ 
 
   const { storeToken, authUser } = useContext(UserContext);
 
@@ -62,11 +92,11 @@ function EditPlan(){
 
       <form onSubmit={handleEditPlanSubmit}>
         <label>Titulo:</label>
-        <input type="Title" name="Title" value={title} onChange={handleTitle} />
+        <input type="text" name="Title" value={title} onChange={handleTitle} />
 
         <label>Detalles:</label>
         <input
-          type="Details"
+          type="text"
           name="Details"
           value={details}
           onChange={handleDetails}
@@ -84,13 +114,13 @@ function EditPlan(){
             <input
               type="checkbox"
               name="Is Private"
-              value={isPrivate}
+              checked={isPrivate}
               onChange={handleIsPrivate}
             />
 
         <label>Ubicación:</label>
             <input
-              type="Location"
+              type="text"
               name="Location"
               value={location}
               onChange={handleLocation}
@@ -108,9 +138,9 @@ function EditPlan(){
 
               <label>Imagen:</label>
             <input
-              type="file"
-              name=""
-              value={image}
+              type="text"
+              name="image"
+              value=""
               onChange={handleImage}
             />
             
