@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 function Userpage() {
-  const {userId} = useParams();
+  
   const [user, setUser] = useState();
   const [loading, setLoading] = useState(true);
   const {image, name, email} = userId;
