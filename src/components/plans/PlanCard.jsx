@@ -26,7 +26,7 @@ function PlanCard({ plan, formatDate }) {
         headers: { Authorization: `Bearer ${storedToken}` },
       }
         .then(() => {
-          setJoined(!joined);
+          setJoined(true);
         })
         .catch((error) =>
           console.error("Error al unirse o cancelar el plan", error)
