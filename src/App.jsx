@@ -35,7 +35,6 @@ function App() {
   };
 
   const getPublicPlans = () => {
-      
     axios
       .get(`${import.meta.env.VITE_API_URL}/api/plans/public`)
       .then((response) => {
@@ -57,10 +56,11 @@ function App() {
         <Route
           path="/"
           element={
-            <IsAnon>
-              {" "}
-              <Homepage getPublicPlans={getPublicPlans} plans={plans} formatDate={formatDate} />
-            </IsAnon>
+            <Homepage
+              getPublicPlans={getPublicPlans}
+              plans={plans}
+              formatDate={formatDate}
+            />
           }
         ></Route>
         <Route
@@ -79,7 +79,10 @@ function App() {
             </IsAnon>
           }
         ></Route>
-        <Route path="/details/:planId" element={<Plandetails formatDate={formatDate} />}></Route>
+        <Route
+          path="/details/:planId"
+          element={<Plandetails formatDate={formatDate} />}
+        ></Route>
         <Route
           path="/edit-plan/:planId"
           element={
@@ -92,8 +95,12 @@ function App() {
           path="/user-homepage/"
           element={
             <IsPrivate>
-              <UserHomepage getPublicPlans={getPublicPlans} formatDate={formatDate} />
-            </IsPrivate> 
+              <UserHomepage
+                getPublicPlans={getPublicPlans}
+                plans={plans}
+                formatDate={formatDate}
+              />
+            </IsPrivate>
           }
         ></Route>
         <Route
