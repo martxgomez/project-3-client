@@ -9,7 +9,7 @@ function EditPlan(){
   const [date, setDate] = useState("");
   const [location, setLocation] = useState("");
   const [isPrivate, setIsPrivate] = useState(false);
-  const [frecuency, setFrecuency] = useState("");
+  const [frequency, setfrequency] = useState("");
   const [image, setImage] = useState();
   const [errorMessage, setErrorMessage] = useState(undefined);
 
@@ -31,7 +31,7 @@ function EditPlan(){
 
   useEffect(() => {
     const storedToken = localStorage.getItem("authToken");
-
+  
     axios
       .get(`${import.meta.env.VITE_API_URL}/api/plans/${planId}`, {
         headers: { Authorization: `Bearer ${storedToken}` }
@@ -42,11 +42,16 @@ function EditPlan(){
         const planData = response.data;
         setTitle(planData.title);
         setDetails(planData.details);
-        setDate(planData.date);
         setLocation(planData.location);
         setIsPrivate(planData.isPrivate);
-        setFrecuency(planData.frecuency);
-        setImage(planData.image); 
+        setfrequency(planData.frequency);
+        setImage(planData.image);
+  
+        // Formatear la fecha a "YYYY-MM-DD"
+        if (planData.date) {
+          const formattedDate = planData.date.split("T")[0];
+          setDate(formattedDate);
+        }
       })
       .catch((error) => {
         console.error("Error al cargar el plan:", error);
@@ -66,11 +71,11 @@ function EditPlan(){
   const handleDate = (e) => setDate(e.target.value);
   const handleIsPrivate = (e) => setIsPrivate(e.target.checked);
   const handleImage = (e) => setImage(e.target.value);
-  const handleFrecuency = (e) => setFrecuency(e.target.value);
+  const handlefrequency = (e) => setfrequency(e.target.value);
 
   const handleEditPlanSubmit = (e) => {
     e.preventDefault();
-    const requestBody = { title, details, location, date, isPrivate, frecuency, image };
+    const requestBody = { title, details, location, date, isPrivate, frequency, image };
     const storedToken = localStorage.getItem("authToken");
     axios
       .put(`${import.meta.env.VITE_API_URL}/api/plans/${planId}`, requestBody, {
@@ -127,8 +132,8 @@ function EditPlan(){
             />
 
         <label>Frecuencia:</label>
-            <select value={frecuency}
-              onChange={handleFrecuency}>
+            <select value={frequency}
+              onChange={handlefrequency}>
               <option value = "">Seleccione una opción</option>
               <option value = "daily">Diario</option>
               <option value = "weekly">Semanal</option>
@@ -139,8 +144,8 @@ function EditPlan(){
               <label>Imagen:</label>
             <input
               type="text"
-              name="image"
-              value=""
+              name=""
+              value={image}
               onChange={handleImage}
             />
             

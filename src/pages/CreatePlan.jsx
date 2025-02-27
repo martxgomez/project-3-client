@@ -3,16 +3,16 @@ import { useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
-import Modal from "../components/Modal"
+import Modal from "../components/Modal";
 
 function CreatePlan() {
-  const[modalOpen, setModalOpen]= useState(false)
+  const [modalOpen, setModalOpen] = useState(false);
   const [title, setTitle] = useState("");
   const [details, setDetails] = useState("");
   const [date, setDate] = useState("");
   const [location, setLocation] = useState("");
   const [isPrivate, setIsPrivate] = useState(false);
-  const [frecuency, setFrecuency] = useState("");
+  const [frequency, setFrequency] = useState("");
   const [image, setImage] = useState();
   const [errorMessage, setErrorMessage] = useState(undefined);
 
@@ -26,7 +26,7 @@ function CreatePlan() {
   const handleDate = (e) => setDate(e.target.value);
   const handleIsPrivate = (e) => setIsPrivate(e.target.checked);
   const handleImage = (e) => setImage(e.target.value);
-  const handleFrecuency = (e) => setFrecuency(e.target.value);
+  const handleFrequency = (e) => setFrequency(e.target.value);
 
   const handleCreatePlanSubmit = (e) => {
     e.preventDefault();
@@ -36,7 +36,7 @@ function CreatePlan() {
       location,
       date,
       isPrivate,
-      frecuency,
+      frequency,
       image,
       user: user._id,
     };
@@ -65,7 +65,7 @@ function CreatePlan() {
 
         <label>Detalles:</label>
         <input
-          type="Details"
+          type="text"
           name="Details"
           value={details}
           onChange={handleDetails}
@@ -78,7 +78,7 @@ function CreatePlan() {
         <input
           type="checkbox"
           name="Is Private"
-          value={isPrivate}
+          checked={isPrivate}
           onChange={handleIsPrivate}
         />
 
@@ -91,7 +91,7 @@ function CreatePlan() {
         />
 
         <label>Frecuencia:</label>
-        <select value={frecuency} onChange={handleFrecuency}>
+        <select value={frequency} onChange={handleFrequency}>
           <option value="">Seleccione una opción</option>
           <option value="daily">Diario</option>
           <option value="weekly">Semanal</option>
@@ -100,10 +100,15 @@ function CreatePlan() {
         </select>
 
         <label>Imagen:</label>
-        <input type="file" name="" value={image} onChange={handleImage} />
+        <input type="text" name="" value={image} onChange={handleImage} />
 
-        <button onClick={()=> setModalOpen(true)}  type="submit">Crear Plan</button>
-        <Modal isOpen={modalOpen} onChangeModal={(value) => setModalOpen(value)}/>
+        <button onClick={() => setModalOpen(true)} type="submit">
+          Crear Plan
+        </button>
+        <Modal
+          isOpen={modalOpen}
+          onChangeModal={(value) => setModalOpen(value)}
+        />
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
     </div>
