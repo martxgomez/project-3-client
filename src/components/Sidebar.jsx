@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 //STYLE
-// import "./sidebar.css";
+import "./sidebar.css";
 
 //HOOKS
 import { useContext } from "react";
@@ -8,13 +8,13 @@ import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 
-function Sidebar({ isOn }) {
-  const {logOutUser} = useContext(UserContext)
+function Sidebar({ isOn, setSidebarOn }) {
+  const { logOutUser } = useContext(UserContext);
   return (
     <>
       <section id="sidebar" className={isOn ? "sidebar-on" : "sidebar-off"}>
         <section>
-          <Link to="/user-homepage">⬅️</Link>
+          <Link className="sidebar__hide" onClick={() => setSidebarOn(false)} to="/user-homepage">⬅️</Link>
           <ul className="sidebar-ul">
             <li>
               <NavLink to="/">Inicio</NavLink>
@@ -26,14 +26,15 @@ function Sidebar({ isOn }) {
               <NavLink to="/new-plan">Crea un plan</NavLink>
             </li>
             <li>
-              <NavLink to="/" onClick={logOutUser}>Cerrar sesion</NavLink>
+              <NavLink to="/" onClick={logOutUser}>
+                Cerrar sesión
+              </NavLink>
             </li>
           </ul>
         </section>
-</section>
-      </>
-    );
-  }
-
+      </section>
+    </>
+  );
+}
 
 export default Sidebar;

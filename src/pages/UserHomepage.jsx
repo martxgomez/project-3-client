@@ -80,7 +80,7 @@ function UserHomepage({ getPublicPlans, plans, formatDate }) {
         <h3 className="user-homepage-find-plans__title" onClick={togglePublic}>{publicOpen ? "▼" : "▶"}Buscar planes</h3>
         {publicOpen && <PlanList plans={plans} formatDate={formatDate} />}
       </div>
-      <button  onClick={() => navigate("/new-plan") } >Crea tu plan</button>
+      <button onClick={() => navigate("/new-plan")}>Crea tu plan</button>
     </main>
   );
 }
