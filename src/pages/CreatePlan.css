@@ -1,0 +1,43 @@
+.create-plan{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    padding: 20px;
+}
+
+.create-plan form label,
+.create-plan form input,
+.create-plan form select,
+.create-plan form button {
+  display: block;
+  margin-bottom: 5px;
+  padding-left: 10px;
+}
+
+.create-plan form button{
+    border-radius: 5px;
+}
+
+.create-plan__button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.create-plan__title{
+    margin-bottom: 20px;
+}
+
+.create-plan__private{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-plan__text{
+    margin-right: 10px;
+}

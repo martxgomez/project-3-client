@@ -1,3 +1,4 @@
+import "./CreatePlan.css"
 //HOOKS
 import { useState, useContext } from "react";
 import axios from "axios";
@@ -56,8 +57,8 @@ function CreatePlan() {
   };
 
   return (
-    <div className="CreatePlan">
-      <h1>Crear Plan</h1>
+    <div className="create-plan">
+      <h1 className="create-plan__title">Crear Plan</h1>
 
       <form onSubmit={handleCreatePlanSubmit}>
         <label>Titulo:</label>
@@ -74,13 +75,7 @@ function CreatePlan() {
         <label>Fecha:</label>
         <input type="Date" name="Date" value={date} onChange={handleDate} />
 
-        <label>Es privado:</label>
-        <input
-          type="checkbox"
-          name="Is Private"
-          checked={isPrivate}
-          onChange={handleIsPrivate}
-        />
+        
 
         <label>Ubicación:</label>
         <input
@@ -102,13 +97,27 @@ function CreatePlan() {
         <label>Imagen:</label>
         <input type="text" name="" value={image} onChange={handleImage} />
 
+        <div className="create-plan__private">
+        <div className="create-plan__text"><label>Es privado:</label></div>
+        <input
+          type="checkbox"
+          name="Is Private"
+          checked={isPrivate}
+          onChange={handleIsPrivate}
+        />
+        </div>
+
+        <div className="create-plan__button">
         <button onClick={() => setModalOpen(true)} type="submit">
           Crear Plan
         </button>
+        </div>
         <Modal
           isOpen={modalOpen}
           onChangeModal={(value) => setModalOpen(value)}
         />
+
+
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
     </div>

@@ -2,6 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
+import "./EditPlan.css"
 
 function EditPlan(){
   const [title, setTitle] = useState("");
@@ -92,8 +93,8 @@ function EditPlan(){
   };
 
   return (
-    <div className="EditPlan">
-      <h1>Actualizar Plan</h1>
+    <div className="edit-plan">
+      <h1 className="edit-plan__title">Actualizar Plan</h1>
 
       <form onSubmit={handleEditPlanSubmit}>
         <label>Titulo:</label>
@@ -115,13 +116,6 @@ function EditPlan(){
           onChange={handleDate}
         />
 
-        <label>Es privado:</label>
-            <input
-              type="checkbox"
-              name="Is Private"
-              checked={isPrivate}
-              onChange={handleIsPrivate}
-            />
 
         <label>Ubicación:</label>
             <input
@@ -148,12 +142,19 @@ function EditPlan(){
               value={image}
               onChange={handleImage}
             />
-            
-            
-
+            <div className="edit-plan__private">
+          <div className="edit-plan__text"><label>Es privado</label></div>
+            <input
+              type="checkbox"
+              name="Is Private"
+              checked={isPrivate}
+              onChange={handleIsPrivate}
+            />
+            </div>
         
-
+<div className="edit-plan__button">
         <button type="submit">Actualizar Plan</button>
+        </div>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
     </div>
