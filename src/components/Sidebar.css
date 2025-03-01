@@ -1,0 +1,39 @@
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: #7e1829;
+    color: #fff;
+    padding: 20px;
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar-off {
+    transform: translateX(-100%);
+  }
+  
+  .sidebar-on {
+    transform: translateX(0);
+  }
+  
+  
+  .sidebar-ul {
+    list-style: none;
+  }
+  
+  .sidebar-ul li {
+    margin: 17px 0;
+  }
+  
+  .sidebar-ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  
+  
+  
