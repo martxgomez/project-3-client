@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import { UserContext } from "../../context/UserContext";
 
+
 function PlanCard({ plan, formatDate }) {
   const { _id, title, date, location, image } = plan;
   const [joined, setJoined] = useState(false);
@@ -35,8 +36,8 @@ function PlanCard({ plan, formatDate }) {
   };
 
   return (
-    <article>
-      <Link to={`/details/${_id}`} className="card">
+    <article className="plan-card">
+      <Link to={`/details/${_id}`} >
         <div>
           <img src={image} alt={`Imagen de ${title}`} />
           <div>

@@ -69,12 +69,12 @@ function PlanDetails({formatDate}) {
   return (
     <>
       <section>
+      <img src={image} alt={image} />
         <h2>{title}</h2>
         <h3>{user.name}</h3>
         <h3>{formatDate(date)}</h3>
         <h3>{location}</h3>
         <h3>{isPrivate}</h3>
-        <img src={image} alt={image} />
         <h3>Detalles:</h3>
         <p>{details}</p>
       </section>

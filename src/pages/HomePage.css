@@ -1,0 +1,18 @@
+.home-page{
+
+
+}
+
+.header {
+    background-image: url(../assets/header.jpg);
+    width: 380px;
+    height: 450px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: top; 
+    padding: 20px; 
+}
