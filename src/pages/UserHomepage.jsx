@@ -2,6 +2,8 @@ import axios from "axios";
 import PlanList from "../components/plans/PlanList";
 import { useEffect, useState, useContext } from "react";
 import { UserContext } from "../context/UserContext";
+import "./UserHomePage.css"
+import { useNavigate } from "react-router-dom";
 
 function UserHomepage({ getPublicPlans, plans, formatDate }) {
   const [createdPlans, setCreatedPlans] = useState([]);
@@ -10,6 +12,7 @@ function UserHomepage({ getPublicPlans, plans, formatDate }) {
   const [joinedOpen, setJoinedOpen] = useState(false);
   const [publicOpen, setPublicOpen] = useState(false);
 
+  const navigate = useNavigate();
   const { user } = useContext(UserContext);
   const storedToken = localStorage.getItem("authToken");
 
@@ -51,33 +54,34 @@ function UserHomepage({ getPublicPlans, plans, formatDate }) {
   }, []);
 
   return (
-    <>
-      <div>
-        <h3 onClick={toggleCreated}>
-          {createdOpen ? "▼" : "▶"}Mis planes creados
+    <main className="user-homepage">
+      <div className="user-homepage-my-plans">
+        <h3 className="user-homepage-my-plans__title" onClick={toggleCreated}>
+          {createdOpen ? "▼" : "▶"} Mis planes creados
         </h3>
         {createdOpen &&  (createdPlans.length > 0 ? (
-          <PlanList plans={createdPlans} formatDate={formatDate} />
+          <PlanList className="plan-list" plans={createdPlans} formatDate={formatDate} />
         ) : (
-          <p>Aún no has creado planes</p>
+          <p className="user-homepage__no-created-plan-message">Aún no has creado planes</p>
         ))}
       </div>
-      <div>
-        <h3 onClick={toggleJoined}>
-          {joinedOpen ? "▼" : "▶"}Planes a los que asisto
+      <div className="user-homepage-joined-plan" >
+        <h3 className="user-homepage-joined-plan__title" onClick={toggleJoined}>
+          {joinedOpen ? "▼" : "▶"} Planes a los que asisto
         </h3>
         {joinedOpen && 
         (joinedPlans.length > 0 ? (
           <PlanList plans={joinedPlans} formatDate={formatDate} />
         ) : (
-          <p>Aún no te has unido a ningún plan</p>
+          <p className="user-homepage__no-created-plan-message">Aún no te has unido a ningún plan</p>
         ))}
       </div>
-      <div>
-        <h3 onClick={togglePublic}>{publicOpen ? "▼" : "▶"}Buscar planes</h3>
+      <div className="user-homepage-find-plans"> 
+        <h3 className="user-homepage-find-plans__title" onClick={togglePublic}>{publicOpen ? "▼" : "▶"}Buscar planes</h3>
         {publicOpen && <PlanList plans={plans} formatDate={formatDate} />}
       </div>
-    </>
+      <button  onClick={() => navigate("/new-plan") } >Crea tu plan</button>
+    </main>
   );
 }
 export default UserHomepage;
