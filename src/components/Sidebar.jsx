@@ -25,6 +25,9 @@ function Sidebar({ isOn }) {
             <li>
               <NavLink to="/new-plan">Crea un plan</NavLink>
             </li>
+            <li>
+              <NavLink to="/" onClick={logOutUser}>Cerrar sesion</NavLink>
+            </li>
           </ul>
         </section>
 </section>
