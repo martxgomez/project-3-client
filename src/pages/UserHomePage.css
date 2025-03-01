@@ -1,0 +1,46 @@
+.user-homepage {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-width: 480px;   
+    margin: 0 auto;  
+    background-color: #fff;
+  }
+
+  .user-homepage-my-plans{
+    padding: 1rem;
+  }
+
+  .user-homepage-my-plans__title{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .user-homepage-joined-plan{
+    padding: 1rem;
+  }
+
+  .user-homepage-joined-plan__title{
+    display: flex;
+    align-items: center;
+    cursor:pointer;
+    margin: 0;
+  }
+
+  .user-homepage-find-plans{
+    padding: 1rem;
+
+  }
+
+  .user-homepage-find-plans__title{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .user-homepage__no-created-plan-message {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    color: #f0814d;
+  }
