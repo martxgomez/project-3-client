@@ -3,6 +3,7 @@ import PlanList from "../components/plans/PlanList";
 import { useEffect, useState, useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import "./UserHomePage.css"
+import { useNavigate } from "react-router-dom";
 
 function UserHomepage({ getPublicPlans, plans, formatDate }) {
   const [createdPlans, setCreatedPlans] = useState([]);
@@ -11,6 +12,7 @@ function UserHomepage({ getPublicPlans, plans, formatDate }) {
   const [joinedOpen, setJoinedOpen] = useState(false);
   const [publicOpen, setPublicOpen] = useState(false);
 
+  const navigate = useNavigate();
   const { user } = useContext(UserContext);
   const storedToken = localStorage.getItem("authToken");
 
@@ -78,6 +80,7 @@ function UserHomepage({ getPublicPlans, plans, formatDate }) {
         <h3 className="user-homepage-find-plans__title" onClick={togglePublic}>{publicOpen ? "▼" : "▶"}Buscar planes</h3>
         {publicOpen && <PlanList plans={plans} formatDate={formatDate} />}
       </div>
+      <button  onClick={() => navigate("/new-plan") } >Crea tu plan</button>
     </main>
   );
 }
