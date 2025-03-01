@@ -1,9 +1,10 @@
 //HOOKS
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { UserContext } from "../context/UserContext";
 import { useContext } from "react";
+import "./Userpage.css"
 
 function Userpage() {
   const [loading, setLoading] = useState(true);
@@ -34,11 +35,10 @@ function Userpage() {
   
   return (
     <div>
-      <div>
-        <img src={user.image} alt="User Image" />
-        <p>{updatedUser.name}</p>
-        <p>{updatedUser.email}</p>
-        <button onClick={() => navigate("/user-edit") }>Edita tu perfil</button>
+      <div className="user-page">
+        <p>Nombre: {updatedUser.name}</p>
+        <p>Email: {updatedUser.email}</p>
+        <button onClick={() => navigate("/user-edit") } className="user-page__button">Edita tu perfil</button>
       </div>
     </div>
   );
