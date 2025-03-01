@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { UserContext } from "../context/UserContext";
 import { useContext } from "react";
+import "./Userpage.css"
 
 function Userpage() {
   const [loading, setLoading] = useState(true);
