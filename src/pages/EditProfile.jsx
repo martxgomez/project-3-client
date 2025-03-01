@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "./EditProfile.css"
 
 function EditProfile() {
   const [name, setName] = useState("");
@@ -35,7 +36,7 @@ function EditProfile() {
   
 
   return (
-    <>
+    <div className="edit-profile">
       <form onSubmit={handleEditProfile}>
         <h1>Edita tu perfil</h1>
         <label>Nombre:</label>
@@ -58,7 +59,7 @@ function EditProfile() {
         />
         <button type="submit">Guardar Cambios</button>
       </form>
-    </>
+    </div>
   );
 }
 export default EditProfile;

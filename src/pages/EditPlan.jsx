@@ -2,9 +2,9 @@ import { useState, useContext, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
-import "./EditPlan.css"
+import "./EditPlan.css";
 
-function EditPlan(){
+function EditPlan() {
   const [title, setTitle] = useState("");
   const [details, setDetails] = useState("");
   const [date, setDate] = useState("");
@@ -14,10 +14,10 @@ function EditPlan(){
   const [image, setImage] = useState();
   const [errorMessage, setErrorMessage] = useState(undefined);
 
-  // Hay que hacer una get request para recibir el plan 
+  // Hay que hacer una get request para recibir el plan
 
   // useEffect ...
-    // axios.get -> API PLANS. El id del plan lo obtenemos de los params
+  // axios.get -> API PLANS. El id del plan lo obtenemos de los params
   // dentro del useeffect rellenamos todos los campos con la respuesta de la api
   // tenemos que obtener el token del localstorage para añadir el header
   /*
@@ -27,19 +27,18 @@ function EditPlan(){
   ...
   */
 
-  const {planId} = useParams();
-
+  const { planId } = useParams();
 
   useEffect(() => {
     const storedToken = localStorage.getItem("authToken");
-  
+
     axios
       .get(`${import.meta.env.VITE_API_URL}/api/plans/${planId}`, {
-        headers: { Authorization: `Bearer ${storedToken}` }
+        headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
         console.log(response.data);
-        
+
         const planData = response.data;
         setTitle(planData.title);
         setDetails(planData.details);
@@ -47,7 +46,7 @@ function EditPlan(){
         setIsPrivate(planData.isPrivate);
         setfrequency(planData.frequency);
         setImage(planData.image);
-  
+
         // Formatear la fecha a "YYYY-MM-DD"
         if (planData.date) {
           const formattedDate = planData.date.split("T")[0];
@@ -60,9 +59,7 @@ function EditPlan(){
       });
   }, [planId]);
 
-
   const navigate = useNavigate();
- 
 
   const { storeToken, authUser } = useContext(UserContext);
 
@@ -76,11 +73,19 @@ function EditPlan(){
 
   const handleEditPlanSubmit = (e) => {
     e.preventDefault();
-    const requestBody = { title, details, location, date, isPrivate, frequency, image };
+    const requestBody = {
+      title,
+      details,
+      location,
+      date,
+      isPrivate,
+      frequency,
+      image,
+    };
     const storedToken = localStorage.getItem("authToken");
     axios
       .put(`${import.meta.env.VITE_API_URL}/api/plans/${planId}`, requestBody, {
-        headers: { Authorization: `Bearer ${storedToken}` }
+        headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
         authUser();
@@ -109,56 +114,45 @@ function EditPlan(){
         />
 
         <label>Fecha:</label>
-        <input
-          type="Date"
-          name="Date"
-          value={date}
-          onChange={handleDate}
-        />
-
+        <input type="Date" name="Date" value={date} onChange={handleDate} />
 
         <label>Ubicación:</label>
-            <input
-              type="text"
-              name="Location"
-              value={location}
-              onChange={handleLocation}
-            />
+        <input
+          type="text"
+          name="Location"
+          value={location}
+          onChange={handleLocation}
+        />
 
         <label>Frecuencia:</label>
-            <select value={frequency}
-              onChange={handlefrequency}>
-              <option value = "">Seleccione una opción</option>
-              <option value = "daily">Diario</option>
-              <option value = "weekly">Semanal</option>
-              <option value = "monthly">Mensualmente</option>
-              <option value = "once">Una vez</option>
-              </select>
+        <select value={frequency} onChange={handlefrequency}>
+          <option value="">Seleccione una opción</option>
+          <option value="daily">Diario</option>
+          <option value="weekly">Semanal</option>
+          <option value="monthly">Mensualmente</option>
+          <option value="once">Una vez</option>
+        </select>
 
-              <label>Imagen:</label>
-            <input
-              type="text"
-              name=""
-              value={image}
-              onChange={handleImage}
-            />
-            <div className="edit-plan__private">
-          <div className="edit-plan__text"><label>Es privado</label></div>
-            <input
-              type="checkbox"
-              name="Is Private"
-              checked={isPrivate}
-              onChange={handleIsPrivate}
-            />
-            </div>
-        
-<div className="edit-plan__button">
-        <button type="submit">Actualizar Plan</button>
+        <label>Imagen:</label>
+        <input type="text" name="" value={image} onChange={handleImage} />
+        <div className="edit-plan__private">
+          <div className="edit-plan__text">
+            <label>Es privado</label>
+          </div>
+          <input
+            type="checkbox"
+            name="Is Private"
+            checked={isPrivate}
+            onChange={handleIsPrivate}
+          />
+        </div>
+
+        <div className="edit-plan__button">
+          <button type="submit">Actualizar Plan</button>
         </div>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
     </div>
   );
 }
-    export default EditPlan
-
+export default EditPlan;
