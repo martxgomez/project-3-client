@@ -56,6 +56,7 @@ function UserHomepage({ getPublicPlans, plans, formatDate }) {
   return (
     <main className="user-homepage">
       <div className="user-homepage-my-plans">
+        <h1>Mis planes</h1>
         <h3 className="user-homepage-my-plans__title" onClick={toggleCreated}>
           {createdOpen ? "▼" : "▶"} Mis planes creados
         </h3>

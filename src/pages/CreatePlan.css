@@ -1,43 +1,98 @@
-.create-plan{
+.create-plan {
     display: flex;
     flex-direction: column;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
     text-align: center;
+    gap: 24px;
+    background-color: rgb(233, 230, 225);
+    height: 100vh;
+    overflow: auto;
+  }
+  
+  .create-plan__title {
+    margin-bottom: 16px;
+    font-size: 28px;
+    color:  rgb(152,82,77);
+
+  }
+  
+  .create-plan form {
+    width: 90%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
     gap: 10px;
-    padding: 20px;
-}
-
-.create-plan form label,
-.create-plan form input,
-.create-plan form select,
-.create-plan form button {
-  display: block;
-  margin-bottom: 5px;
-  padding-left: 10px;
-}
-
-.create-plan form button{
-    border-radius: 5px;
-}
-
-.create-plan__button{
+  }
+  
+  .create-plan form label {
+    display: block;
+    margin-bottom: 12px;
+    margin-right: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #262627;
+    text-align: left;
+  }
+  
+  .create-plan form input,
+  .create-plan form select {
+    display: block;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: white;
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  
+  .create-plan form button {
+    background-color: rgb(152,82,77);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 16px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 16px;
+  }
+  
+  .create-plan__button {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.create-plan__title{
-    margin-bottom: 20px;
-}
-
-.create-plan__private{
+    width: 100%;
+  }
+  
+  .create-plan__private {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-}
+    background-color: white;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
 
-.create-plan__text{
-    margin-right: 10px;
-}
+  .create-plan__checkbox{
+    display: flex;
+  }
+  
+  .checkbox{
+    width: 22px;
+    height: 22px;
+    border-radius: 4px;
+    border: 2px solid #d1d1d1;
+    background-color: white;
+    cursor: pointer;
+    position: relative;
+    margin: 0;
+  }
+  
+
+
+  
+  
+  

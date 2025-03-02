@@ -51,7 +51,7 @@ function App() {
   return (
     <>
       <Navbar onClick={toggleSidebar} />
-      <Sidebar isOn={sidebarOn} setSidebarOn={setSidebarOn} />
+      <Sidebar isOn={sidebarOn} setSidebarOn={setSidebarOn} toggleSidebar={toggleSidebar}/>
       <Routes>
         <Route
           path="/"

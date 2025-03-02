@@ -26,7 +26,6 @@ function CreatePlan() {
   const handleLocation = (e) => setLocation(e.target.value);
   const handleDate = (e) => setDate(e.target.value);
   const handleIsPrivate = (e) => setIsPrivate(e.target.checked);
-  const handleImage = (e) => setImage(e.target.value);
   const handleFrequency = (e) => setFrequency(e.target.value);
 
   const handleCreatePlanSubmit = (e) => {
@@ -38,7 +37,6 @@ function CreatePlan() {
       date,
       isPrivate,
       frequency,
-      image,
       user: user._id,
     };
     const storedToken = localStorage.getItem("authToken");
@@ -58,13 +56,13 @@ function CreatePlan() {
 
   return (
     <div className="create-plan">
-      <h1 className="create-plan__title">Crear Plan</h1>
+      <h1 className="create-plan__title">Crea tu Plan</h1>
 
       <form onSubmit={handleCreatePlanSubmit}>
-        <label>Titulo:</label>
+        <label>Titulo</label>
         <input type="Title" name="Title" value={title} onChange={handleTitle} />
 
-        <label>Detalles:</label>
+        <label>Detalles</label>
         <input
           type="text"
           name="Details"
@@ -72,12 +70,12 @@ function CreatePlan() {
           onChange={handleDetails}
         />
 
-        <label>Fecha:</label>
+        <label>Fecha</label>
         <input type="Date" name="Date" value={date} onChange={handleDate} />
 
         
 
-        <label>Ubicación:</label>
+        <label>Ubicación</label>
         <input
           type="text"
           value={location}
@@ -85,7 +83,7 @@ function CreatePlan() {
           placeholder="Ej: Madrid"
         />
 
-        <label>Frecuencia:</label>
+        <label>Frecuencia</label>
         <select value={frequency} onChange={handleFrequency}>
           <option value="">Seleccione una opción</option>
           <option value="daily">Diario</option>
@@ -94,12 +92,10 @@ function CreatePlan() {
           <option value="once">Una vez</option>
         </select>
 
-        <label>Imagen:</label>
-        <input type="text" name="" value={image} onChange={handleImage} />
-
-        <div className="create-plan__private">
-        <div className="create-plan__text"><label>Es privado:</label></div>
-        <input
+        <div className="create-plan__checkbox">
+        <div className="create-plan__text"><label>Es privado</label></div>
+        <input 
+          className="checkbox"
           type="checkbox"
           name="Is Private"
           checked={isPrivate}
