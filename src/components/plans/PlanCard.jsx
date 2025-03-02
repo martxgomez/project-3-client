@@ -2,6 +2,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import { UserContext } from "../../context/UserContext";
+import  "./PlanCard.css";
 
 
 function PlanCard({ plan, formatDate }) {
@@ -39,15 +40,16 @@ function PlanCard({ plan, formatDate }) {
     <article className="plan-card">
       <Link to={`/details/${_id}`} >
         <div>
-          <img src={image} alt={`Imagen de ${title}`} />
-          <div>
+          <img className="plan-card__image"  src={image} alt={`Imagen de ${title}`} />
+          <div className="plan-card__details">
             <h2>{title}</h2>
             <p>{location}</p>
-            <p>{formatDate(date)}</p>
+            <div className="plan-car__details__date"><img src="src\assets\calendar.svg"/><p>{formatDate(date)}</p></div>
           </div>
         </div>
       </Link>
       <button onClick={handleJoinPlan}>{joined ? "Cancelar" : "Unirme"}</button>
+     
     </article>
   );
 }

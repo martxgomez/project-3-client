@@ -2,6 +2,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import "./PlanDetails.css"
 
 //COMPONENTS
 import Map from "../components/Map";
@@ -68,8 +69,8 @@ function PlanDetails({formatDate}) {
 
   return (
     <>
-      <section>
-      <img src={image} alt={image} />
+      <section className="plan-details">
+      <img className="plan-details__image" src={image} alt={image} />
         <h2>{title}</h2>
         <h3>{user.name}</h3>
         <h3>{formatDate(date)}</h3>

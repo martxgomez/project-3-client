@@ -1,0 +1,18 @@
+.plan-card{
+    display: flex;
+    flex-direction: row;
+    border-bottom: 15px solid rgb(247, 247, 247);
+    
+
+    
+}
+
+.plan-card__image{
+    width: 200px;
+    border-radius: 15px;
+}
+
+.plan-card__details{}
+
+
+.plan-car__details__date{}
