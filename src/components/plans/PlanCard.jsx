@@ -8,7 +8,7 @@ import  "./PlanCard.css";
 
 function PlanCard({ plan, formatDate }) {
   const { _id, title, date, location, image } = plan;
-  const [joined, setJoined] = useState(false);
+ 
 
   const { user } = useContext(UserContext);
 
@@ -18,9 +18,7 @@ function PlanCard({ plan, formatDate }) {
     setJoined(plansId.includes(_id));
   }
 
-  const handleJoinPlan = () => {
-    const requestBody = { planId: _id };
-    const storedToken = localStorage.getItem("authToken");
+  
 
     axios.put(
       `${import.meta.env.VITE_API_URL}/auth/${user._id}/my-plans`,
@@ -35,7 +33,7 @@ function PlanCard({ plan, formatDate }) {
           console.error("Error al unirse o cancelar el plan", error)
         )
     );
-  };
+  
 
   return (
     <article className="plan-card">
@@ -51,7 +49,7 @@ function PlanCard({ plan, formatDate }) {
           
         </div>
       </Link>
-      <button className="plan-card__button" onClick={handleJoinPlan}>{joined ? "Cancelar" : "Unirme"}</button> 
+     
       
      
     </article>

@@ -13,7 +13,7 @@ function PlanDetails({formatDate}) {
   const { planId } = useParams();
   const [plan, setPlan] = useState();
   const [loading, setLoading] = useState(true);
-
+  const [joined, setJoined] = useState(false);
   //GET DATA
   useEffect(() => {
     const getPlan = () => {
@@ -48,6 +48,11 @@ function PlanDetails({formatDate}) {
     attendance,
     comments,
   } = plan;
+
+const handleJoinPlan = () => {
+    const requestBody = { planId: _id };
+    const storedToken = localStorage.getItem("authToken");
+}
 
   const handleAttendance = (attendance) => {
     if (attendance.length === 0) {
@@ -95,6 +100,7 @@ function PlanDetails({formatDate}) {
           {" "}
           <button>Ver todos</button>
         </Link>
+        <button className="plan-card__button" onClick={handleJoinPlan}>{joined ? "Cancelar" : "Unirme"}</button> 
       </section>
     </>
   );

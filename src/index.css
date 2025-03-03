@@ -4,10 +4,35 @@
   box-sizing: border-box;
   text-decoration: none;
   color: rgb(0, 0, 0);
+ 
+  }
+h1, h2, h3,h4 {
+  
+  font-family: "Roboto", serif;
+  font-optical-sizing: auto;
+  font-weight:bold;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
 }
+
+p{
+  
+  font-family: "Roboto", serif;
+  font-optical-sizing: auto;
+  font-weight:normal;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+
+
+
 
 #root {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
+
