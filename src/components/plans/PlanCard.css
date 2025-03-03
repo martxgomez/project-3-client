@@ -5,7 +5,8 @@
 }
 
 .plan-card__main {
-  display: flex;
+  display:flex;
+  justify-content: space-between;
 
   flex-direction: row;
 }
