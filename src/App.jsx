@@ -1,5 +1,7 @@
 //STYLE
 // import "./App.css";
+import menu from "./assets/menu.svg";
+import closeIcon from "./assets/closeIcon.svg";
 
 //ROUTES
 import { Routes, Route } from "react-router-dom";
@@ -30,6 +32,7 @@ function App() {
   const [sidebarOn, setSidebarOn] = useState(false);
   const [plans, setPlans] = useState([]);
 
+
   const toggleSidebar = () => {
     setSidebarOn(!sidebarOn);
   };
@@ -50,8 +53,12 @@ function App() {
 
   return (
     <>
-      <Navbar onClick={toggleSidebar} />
-      <Sidebar isOn={sidebarOn} />
+      <Navbar onClick={toggleSidebar} iconSource={!sidebarOn? menu : closeIcon} />
+      <Sidebar
+        isOn={sidebarOn}
+        setSidebarOn={setSidebarOn}
+        toggleSidebar={toggleSidebar}
+      />
       <Routes>
         <Route
           path="/"

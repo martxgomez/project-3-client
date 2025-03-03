@@ -13,7 +13,7 @@ function Modal({ isOpen, onChangeModal }) {
   return (
     <div className="modal">
       <div className=" modal__container">
-        <button onClick={closeModal}>x</button>
+        <button  onClick={closeModal}>x</button>
         <h2>Quieres invitar a tus amigos?</h2>
         <p>Compartir enlace</p>
         <button>Copiar url</button>
@@ -25,3 +25,5 @@ function Modal({ isOpen, onChangeModal }) {
 }
 
 export default Modal;
+
+

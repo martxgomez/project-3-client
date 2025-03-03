@@ -1,0 +1,43 @@
+.edit-plan{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    padding: 30px;
+}
+
+.edit-plan form label,
+.edit-plan form input,
+.edit-plan form select,
+.edit-plan form button {
+  display: block;
+  margin-bottom: 5px;
+  padding-left: 10px;
+}
+
+.edit-plan form button{
+    border-radius: 5px;
+}
+
+.edit-plan__button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-plan__title{
+    margin-bottom: 20px;
+}
+
+.edit-plan__private{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-plan__text{
+    margin-right: 10px;
+}
