@@ -1,4 +1,68 @@
+
 .user-homepage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ height: 100vh;   
+ width: 100%;
+  margin: 0 auto;  
+  gap:50px;
+  background-color:  rgb(233, 230, 225);
+}
+
+.user-homepage-my-plans, 
+.user-homepage-joined-plan,
+.user-homepage-find-plans {
+  background: white;
+  border-radius: 15px;
+  margin-bottom: 1.2rem;
+}
+
+.user-homepage-my-plans__title,
+.user-homepage-joined-plan__title,
+.user-homepage-find-plans__title {
+  color: #34495e;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.8rem;
+  background: rgba(152, 82, 77, 0.299);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+
+
+.plan-list {
+  margin-top: 1rem;
+}
+
+.user-homepage__btn {
+  background-color: rgb(152,82,77);
+    color: white;
+    border: none;
+    border-radius: 24px;
+    padding: 16px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 16px;
+
+    
+    
+}
+
+
+.user-homepage__no-created-plan-message {
+  color:  rgb(152,82,77);;
+  text-align: center;
+  padding: 1.5rem;
+
+}
+
+
+
+ /* .user-homepage {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -8,7 +72,11 @@
   }
 
   .user-homepage-my-plans{
-    padding: 1rem;
+    background:  rgb(152,82,77);
+    border-radius: 15px;
+    padding: 1.2rem;
+    margin-bottom: 1.2rem;
+    transition: transform 0.2s ease;
   }
 
   .user-homepage-my-plans__title{
@@ -39,8 +107,9 @@
     cursor: pointer;
   }
 
+
   .user-homepage__no-created-plan-message {
     margin-top: 0.5rem;
     font-size: 0.95rem;
     color: #f0814d;
-  }
+  }  */

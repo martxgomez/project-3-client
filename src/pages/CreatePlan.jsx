@@ -46,7 +46,6 @@ function CreatePlan() {
       })
       .then((response) => {
         authUser();
-        // navigate("/user-homepage/:userId");
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;

@@ -55,8 +55,10 @@ function UserHomepage({ getPublicPlans, plans, formatDate }) {
 
   return (
     <main className="user-homepage">
+        <h1>{`Hola, ${user.name}`}</h1>
+      <h1>Mis planes</h1>
       <div className="user-homepage-my-plans">
-        <h1>Mis planes</h1>
+      
         <h3 className="user-homepage-my-plans__title" onClick={toggleCreated}>
           {createdOpen ? "▼" : "▶"} Mis planes creados
         </h3>
@@ -81,7 +83,7 @@ function UserHomepage({ getPublicPlans, plans, formatDate }) {
         <h3 className="user-homepage-find-plans__title" onClick={togglePublic}>{publicOpen ? "▼" : "▶"}Buscar planes</h3>
         {publicOpen && <PlanList plans={plans} formatDate={formatDate} />}
       </div>
-      <button onClick={() => navigate("/new-plan")}>Crea tu plan</button>
+      <button className="user-homepage__btn" onClick={() => navigate("/new-plan")}>Crea tu plan</button>
     </main>
   );
 }

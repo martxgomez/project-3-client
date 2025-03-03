@@ -41,7 +41,7 @@
     padding: 16px;
     border: none;
     border-radius: 8px;
-    background-color: white;
+    background-color: rgba(152, 82, 77, 0.189);
     font-size: 16px;
     margin-bottom: 8px;
   }
@@ -50,20 +50,14 @@
     background-color: rgb(152,82,77);
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 24px;
     padding: 16px 24px;
     font-size: 16px;
     font-weight: 600;
     margin-top: 16px;
   }
   
-  .create-plan__button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
-  
+
   .create-plan__private {
     display: flex;
     flex-direction: row;
