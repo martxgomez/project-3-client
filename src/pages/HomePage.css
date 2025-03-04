@@ -3,16 +3,24 @@
 
 }
 
-.header {
+.home-page__header {
     background-image: url(../assets/header.jpg);
     width: 380px;
-    height: 450px;
+    height: 550px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     display: flex;
-    align-items: flex-start;
+    align-items:normal;
     justify-content: center;
-    text-align: top; 
-    padding: 20px; 
+    text-align:center;
+    padding-top: 30px;
+
+    h1{
+        color: #838181;
+
+    }
+   
+    
 }
+

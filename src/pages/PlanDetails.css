@@ -5,3 +5,48 @@
 .plan-details__image{
     width: 400px;
 }
+
+.plan-details__details{
+    margin: 1rem;
+    
+}
+
+.plan-details__details__date{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+
+.plan-details__details__attendance{
+
+    margin: 1rem;
+
+}
+
+.plan-details__footer {
+ 
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 15px;
+
+    text-align: center;
+    z-index: 1000;
+  }
+  
+  .plan-details__footer__button{
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color:#a74d4a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .plan-details__footer__button:hover {
+    background-color: #a74d4a;
+  }

@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import "./PlanCard.css";
+import calendar from "../../assets/calendar.svg"
+
 
 function PlanCard({ plan, formatDate }) {
   const { _id, title, date, location, image } = plan;
@@ -12,7 +14,7 @@ function PlanCard({ plan, formatDate }) {
             <h2>{title}</h2>
             <p>{location}</p>
             <div className="plan-car__details__date">
-              <img src="src\assets\calendar.svg" />
+              <img src={calendar} />
               <p>{formatDate(date)}</p>
             </div>
           </div>

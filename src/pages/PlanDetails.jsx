@@ -4,6 +4,7 @@ import { useState, useEffect, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import "./PlanDetails.css";
+import calendar from "../assets/calendar.svg"
 
 //COMPONENTS
 import Map from "../components/Map";
@@ -93,16 +94,20 @@ function PlanDetails({ formatDate }) {
           src={plan.image}
           alt={plan.image}
         />
+        <div className="plan-details__details">
         <h2>{plan.title}</h2>
         <h3>{plan.name}</h3>
-        <h3>{formatDate(plan.date)}</h3>
+       <div className="plan-details__details__date"> 
+       <img src={calendar}/><h3>{formatDate(plan.date)}</h3></div>
         <h3>{plan.location}</h3>
         <h3>{plan.isPrivate}</h3>
         <h3>Detalles:</h3>
         <p>{plan.details}</p>
+        </div>
+        
       </section>
       {plan.location && <Map location={plan.location} />}
-      <section>
+      <section className="plan-details__details__attendance">
         <h3>Asistentes:</h3>
         <>{handleAttendance(plan.attendance)}</>
       </section>
@@ -117,10 +122,14 @@ function PlanDetails({ formatDate }) {
           {" "}
           <button>Ver todos</button>
         </Link>
-        <button className="plan-card__button" onClick={handleJoinPlan}>
+        <div className="plan-details__footer">
+        <button className="plan-details__footer__button" onClick={handleJoinPlan}>
           {joined ? "Cancelar" : "Unirme"}
+         
         </button>
+        </div>
       </section>
+      
     </>
   );
 }
