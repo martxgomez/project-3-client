@@ -5,10 +5,11 @@ import { useParams, Link } from "react-router-dom";
 
 //COMPONENTS
 import Map from "../components/Map";
+import Comments from "../components/Comments";
 
 //STYLE
 
-function PlanDetails({formatDate}) {
+function PlanDetails({ formatDate }) {
   const { planId } = useParams();
   const [plan, setPlan] = useState();
   const [loading, setLoading] = useState(true);
@@ -26,8 +27,10 @@ function PlanDetails({formatDate}) {
           setPlan(response.data);
           setLoading(false);
         })
-        .catch((error) => console.log("Error getting data:", error));
-      setLoading(false);
+        .catch((error) => {
+          console.log("Error getting data:", error);
+          setLoading(false);
+        });
     };
 
     getPlan();
@@ -84,17 +87,7 @@ function PlanDetails({formatDate}) {
         <>{handleAttendance(plan.attendance)}</>
       </section>
 
-      {/* por definir */}
-      <section>
-        <Link to="/add-coment">
-          {" "}
-          <button>Añadir comentario</button>
-        </Link>
-        <Link to="/comments/:planId">
-          {" "}
-          <button>Ver todos</button>
-        </Link>
-      </section>
+      <Comments planId={planId} />
     </>
   );
 }

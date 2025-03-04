@@ -10,7 +10,7 @@ function PlanCard({ plan, formatDate }) {
   const { user } = useContext(UserContext);
 
   //CHECK IF PLANS' ID IS INCLUDED IN ARRAY OF JOINED
-  if (user.myPlans) {
+  if (user && user.myPlans) {
     const plansId = user.myPlans.map((plan) => plan._id);
     setJoined(plansId.includes(_id));
   }

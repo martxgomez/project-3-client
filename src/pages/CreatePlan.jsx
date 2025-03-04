@@ -38,7 +38,7 @@ function CreatePlan() {
       isPrivate,
       frecuency,
       image,
-      user: user._id,
+      user: user._id
     };
     const storedToken = localStorage.getItem("authToken");
     axios
@@ -65,7 +65,7 @@ function CreatePlan() {
 
         <label>Detalles:</label>
         <input
-          type="Details"
+          type="text"
           name="Details"
           value={details}
           onChange={handleDetails}
