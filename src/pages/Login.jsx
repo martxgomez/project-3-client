@@ -1,4 +1,5 @@
 // src/pages/LoginPage.jsx
+import "./Login.css"
 // HOOKS
 import { useState, useContext } from "react";
 import axios from "axios";
@@ -36,16 +37,17 @@ function Login(props) {
   };
 
   return (
-    <div className="LoginPage">
-      <h1>Login</h1>
+    <div className="login-page">
+    <div>
+      <h1 className="login-page__title">Login</h1>
 
       <form onSubmit={handleLoginSubmit}>
         <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+        <input type="text" name="email" value={email} onChange={handleEmail} />
 
         <label>Password:</label>
         <input
-          type="password"
+          type="text"
           name="password"
           value={password}
           onChange={handlePassword}
@@ -53,6 +55,7 @@ function Login(props) {
 
         <button type="submit">Login</button>
       </form>
+      </div>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p>Don't have an account yet?</p>

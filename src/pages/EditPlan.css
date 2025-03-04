@@ -1,25 +1,62 @@
 .edit-plan{
     display: flex;
-    justify-content: center;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     text-align: center;
+    gap: 24px;
+    background-color: rgb(233, 230, 225);
+    height: 100vh;
+    overflow: auto;
+    display: block;
+    visibility: visible;
+}
+
+.edit-plan__title{
+    margin-bottom: 16px;
+    font-size: 28px;
+    color:  rgb(152,82,77);
+}
+
+.edit-plan form {
+    width: 90%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
     gap: 10px;
-    padding: 30px;
-}
+  }
+  
+  .edit-plan form label {
+    display: block;
+    margin-bottom: 12px;
+    margin-right: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #262627;
+    text-align: left;
+  }
+  
+  .edit-plan form input,
+  .edit-plan form select {
+    display: block;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgba(152, 82, 77, 0.189);
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
 
-.edit-plan form label,
-.edit-plan form input,
-.edit-plan form select,
 .edit-plan form button {
-  display: block;
-  margin-bottom: 5px;
-  padding-left: 10px;
-}
-
-.edit-plan form button{
-    border-radius: 5px;
-}
+    background-color: rgb(152,82,77);
+    color: white;
+    border: none;
+    border-radius: 24px;
+    padding: 16px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 16px;
+  }
 
 .edit-plan__button{
     display: flex;
@@ -27,16 +64,17 @@
     justify-content: center;
 }
 
-.edit-plan__title{
-    margin-bottom: 20px;
-}
 
-.edit-plan__private{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
+.checkbox{
+    width: 22px;
+    height: 22px;
+    border-radius: 4px;
+    border: 2px solid #d1d1d1;
+    background-color: white;
+    cursor: pointer;
+    position: relative;
+    margin: 0;
+  }
 
 .edit-plan__text{
     margin-right: 10px;
