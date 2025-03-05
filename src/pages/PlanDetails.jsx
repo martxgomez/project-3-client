@@ -87,8 +87,10 @@ function PlanDetails({ formatDate }) {
     }
   };
 
+
   return (
     <>
+    
       <section className="plan-details">
         <img className="plan-details__image"
           src={plan.image}
@@ -132,7 +134,9 @@ function PlanDetails({ formatDate }) {
           {" "}
           <button className="plan-details__buttons-show">Ver todos</button>
         </Link>
+        
       </section>
+      
       
     </>
   );

@@ -35,7 +35,8 @@
   font-size: 15px;
   font-weight:bolder;
   align-content: center;
-  justify-items: center
+  justify-items: center;
+ align-items: center;
 }
 
 .plan-details__details__location {
@@ -43,6 +44,7 @@
   flex-direction: row;
   font-size: 14px;
   margin-bottom: 1rem;
+  align-items: center;
   
 }
 
