@@ -30,7 +30,7 @@ function Comments({ planId }) {
     };
 
     console.log(user);
-    
+
     const storedToken = localStorage.getItem("authToken");
 
     axios
@@ -65,6 +65,10 @@ function Comments({ planId }) {
         setErrorMessage("Error al borrar el comentario:", errorDescription);
       });
   };
+
+  useEffect(() => {
+    getComments();
+  }, []);
 
   return (
     <>
