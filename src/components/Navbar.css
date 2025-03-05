@@ -2,6 +2,7 @@
   background-color: white;
   padding: 20px 20px;
   width: 100%;
+
   display: flex;
   align-content: space-around;
   justify-content: space-around;
@@ -18,12 +19,19 @@
 }
 
 .nav-bar__iniciar-button {
-  margin-right: 1.5rem;
+  border-color: #a74d4a;
+  background-color: white;
+  color: #a74d4a;
+  border-radius: 10px;
+  margin-right: 1rem;
   width: 100px;
   height: 30px;
 }
 
 .nav-bar__registrate-button {
-  width: 80px;
+    border-radius: 10px;
+    background-color: #a74d4a;
+    color: #ffffff;
+  width: 90px;
   height: 30px;
 }

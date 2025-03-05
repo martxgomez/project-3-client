@@ -14,8 +14,8 @@ function Homepage({getPublicPlans, plans, formatDate}) {
   return (
     <>
       <div className="home-page">
-      <div className="header">
-        <h1>Haz nuevos amigos, descubre nuevos intereses y encuentra eventos asombrosos. </h1>
+      <div className="home-page__header">
+        <h1>Haz nuevos amigos y encuentra eventos asombrosos. </h1>
         </div>
       <div>
         <PlanList plans={plans} formatDate={formatDate} />

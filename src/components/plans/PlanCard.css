@@ -1,24 +1,24 @@
 .plan-card {
   margin: 1rem;
 
-  border-bottom: 15px solid rgb(247, 247, 247);
+  border-bottom: 10px solid #eae6e0;
 }
 
 .plan-card__main {
-  display:flex;
+  margin-bottom: 2rem;
+  display: flex;
   justify-content: space-between;
-
   flex-direction: row;
 }
 
 .plan-card__image {
-    margin-top: 0.5rem;
+  margin-top: 0.5rem;
   width: 180px;
   border-radius: 15px;
 }
 
 .plan-card__details {
-    margin-top: 0.5rem;
+  margin-top: 0.5rem;
   margin-right: 1rem;
 
   align-items: center;
@@ -26,7 +26,7 @@
 }
 
 .plan-car__details__date {
-    margin-top: 0.5rem;
+  margin-top: 0.5rem;
   display: flex;
   flex-direction: row;
   gap: 10px;
