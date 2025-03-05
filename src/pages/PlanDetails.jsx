@@ -4,7 +4,8 @@ import { useState, useEffect, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import "./PlanDetails.css";
-import calendar from "../assets/calendar.svg"
+import calendar from "../assets/calendar.svg";
+import logoLocation from "../assets/icono_ubicacion.png";
 
 //COMPONENTS
 import Map from "../components/Map";
@@ -89,45 +90,48 @@ function PlanDetails({ formatDate }) {
   return (
     <>
       <section className="plan-details">
-        <img
-          className="plan-details__image"
+        <img className="plan-details__image"
           src={plan.image}
-          alt={plan.image}
-        />
+          alt={plan.image}/>
+           <button
+          className="plan-details__join-button"
+          onClick={handleJoinPlan}>
+          {joined ? "Cancelar" : "Unirme"}
+        </button>
+
         <div className="plan-details__details">
-        <h2>{plan.title}</h2>
-        <h3>{plan.name}</h3>
-       <div className="plan-details__details__date"> 
-       <img src={calendar}/><h3>{formatDate(plan.date)}</h3></div>
-        <h3>{plan.location}</h3>
-        <h3>{plan.isPrivate}</h3>
-        <h3>Detalles:</h3>
-        <p>{plan.details}</p>
+          <h2>{plan.title}</h2>
+          <h3>{plan.name}</h3>
+          <div className="plan-details__details__date">
+            <img src={calendar} />
+            <p>{formatDate(plan.date)}</p>
+          </div>
+          <div className="plan-details__details__location">
+            <img src={logoLocation} />
+            <p>{plan.location}</p>
+          </div>
+          <h3>{plan.isPrivate}</h3>
+          <h4>Detalles:</h4>
+          <p>{plan.details}</p>
         </div>
-        
       </section>
       {plan.location && <Map location={plan.location} />}
-      <section className="plan-details__details__attendance">
+      <section className="plan-details__attendance">
         <h3>Asistentes:</h3>
         <>{handleAttendance(plan.attendance)}</>
+       
       </section>
 
       {/* por definir */}
-      <section>
+      <section className="plan-details__buttons">
         <Link to="/add-coment">
           {" "}
-          <button>Añadir comentario</button>
+          <button className="plan-details__buttons-add">Añadir comentario</button>
         </Link>
         <Link to="/comments/:planId">
           {" "}
-          <button>Ver todos</button>
+          <button className="plan-details__buttons-show">Ver todos</button>
         </Link>
-        <div className="plan-details__footer">
-        <button className="plan-details__footer__button" onClick={handleJoinPlan}>
-          {joined ? "Cancelar" : "Unirme"}
-         
-        </button>
-        </div>
       </section>
       
     </>

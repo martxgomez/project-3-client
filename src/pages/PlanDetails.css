@@ -1,52 +1,87 @@
-.plan-details{
-
+.plan-details {
+  
 }
 
-.plan-details__image{
-    width: 400px;
+.plan-details__image {
+  width: 400px;
+}
+
+.plan-details__details {
+  margin: 1rem;
+}
+
+.plan-details__join-button {
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #a74d4a;
+  color: white;
+  border: none;
+
 }
 
 .plan-details__details{
-    margin: 1rem;
-    
-}
-
-.plan-details__details__date{
-    display: flex;
-    flex-direction: row;
-    
-}
-
-
-.plan-details__details__attendance{
-
-    margin: 1rem;
-
-}
-
-.plan-details__footer {
- 
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: white;
-    padding: 15px;
-
-    text-align: center;
-    z-index: 1000;
-  }
   
-  .plan-details__footer__button{
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    background-color:#a74d4a;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+}
+
+
+
+.plan-details__details__date {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  font-size: 15px;
+  font-weight:bolder;
+  align-content: center;
+  justify-items: center
+}
+
+.plan-details__details__location {
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+  margin-bottom: 1rem;
   
-  .plan-details__footer__button:hover {
-    background-color: #a74d4a;
-  }
+}
+
+.plan-details__details__location img {
+  width: auto;
+  height: 20px;
+}
+
+.plan-details__attendance {
+  margin: 1rem;
+}
+
+
+.plan-details__buttons {
+  margin: 1rem;
+
+}
+
+.plan-details__buttons-add{
+
+  border-color: #a74d4a;
+  background-color: white;
+  color: #a74d4a;
+  border-radius: 10px;
+  margin-right: 1rem;
+  width: 140px;
+  height: 30px;
+  border: no;
+  font-weight: bold;
+}
+
+.plan-details__buttons-show{
+
+  border-color: #a74d4a;
+  background-color: white;
+  color: #a74d4a;
+  border-radius: 10px;
+  margin-right: 1rem;
+  width: 100px;
+  height: 30px;
+  font-weight: bold;
+}
