@@ -1,12 +1,10 @@
 /* eslint-disable react/prop-types */
 
-
-// import "./MenuButton.css";
-
+//STYLES
+import "./MenuButton.css";
 
 function MenuButton({ onClick, iconSource }) {
-  
-  return <img src={iconSource} className="" onClick={onClick}/>
+  return <img src={iconSource} className="icon-source" onClick={onClick} />;
 }
 
 export default MenuButton;

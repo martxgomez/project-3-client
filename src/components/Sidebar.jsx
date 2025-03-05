@@ -14,10 +14,8 @@ function Sidebar({ isOn, setSidebarOn, toggleSidebar }) {
 useEffect(()=>{
   if (typeof window != 'undefined' && window.document && isOn) {
     document.body.style.overflow = 'hidden';
-    console.log("isOn activado");
     
 } else{ 
-  console.log("isOn desactivado")
   document.body.style.overflow = 'visible';
 }
 },[isOn])

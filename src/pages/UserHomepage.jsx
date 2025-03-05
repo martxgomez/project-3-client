@@ -4,6 +4,8 @@ import { useEffect, useState, useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import "./UserHomePage.css"
 import { useNavigate } from "react-router-dom";
+import arrowDown from "../assets/arrow-down.svg"
+import arrowRight from "../assets/arrow-right.svg"
 
 function UserHomepage({ getPublicPlans, plans, formatDate }) {
   const [createdPlans, setCreatedPlans] = useState([]);
@@ -55,12 +57,12 @@ function UserHomepage({ getPublicPlans, plans, formatDate }) {
 
   return (
     <main className="user-homepage">
-        <h1>{`Hola, ${user.name}`}</h1>
-      <h1>Mis planes</h1>
+        <h1 className="user-homepage__title">{`Hola, ${user.name} 👋`}</h1>
+      <h1 className="user-homepage__subtitle" >Mis planes</h1>
       <div className="user-homepage-my-plans">
       
         <h3 className="user-homepage-my-plans__title" onClick={toggleCreated}>
-          {createdOpen ? "▼" : "▶"} Mis planes creados
+          {createdOpen ? <img src={arrowDown}/> : <img src={arrowRight}/>} Mis planes creados
         </h3>
         {createdOpen &&  (createdPlans.length > 0 ? (
           <PlanList className="plan-list" plans={createdPlans} formatDate={formatDate} />
@@ -70,7 +72,7 @@ function UserHomepage({ getPublicPlans, plans, formatDate }) {
       </div>
       <div className="user-homepage-joined-plan" >
         <h3 className="user-homepage-joined-plan__title" onClick={toggleJoined}>
-          {joinedOpen ? "▼" : "▶"} Planes a los que asisto
+          {joinedOpen ? <img src={arrowDown}/> : <img src={arrowRight}/>} Planes a los que asisto
         </h3>
         {joinedOpen && 
         (joinedPlans.length > 0 ? (
@@ -80,7 +82,7 @@ function UserHomepage({ getPublicPlans, plans, formatDate }) {
         ))}
       </div>
       <div className="user-homepage-find-plans"> 
-        <h3 className="user-homepage-find-plans__title" onClick={togglePublic}>{publicOpen ? "▼" : "▶"}Buscar planes</h3>
+        <h3 className="user-homepage-find-plans__title" onClick={togglePublic}>{publicOpen ? <img src={arrowDown}/> : <img src={arrowRight}/>}Buscar planes</h3>
         {publicOpen && <PlanList plans={plans} formatDate={formatDate} />}
       </div>
       <button className="user-homepage__btn" onClick={() => navigate("/new-plan")}>Crea tu plan</button>

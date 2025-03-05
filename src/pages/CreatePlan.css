@@ -46,7 +46,7 @@
     margin-bottom: 8px;
   }
   
-  .create-plan form button {
+  .form__btn {
     background-color: rgb(152,82,77);
     color: white;
     border: none;

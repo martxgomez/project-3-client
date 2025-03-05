@@ -5,9 +5,7 @@
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
-import Logo from "../assets/logo-prueba.jpg";
-import icon from "../assets/closeicon.svg";
-import menu from "../assets/menu.svg"
+import Logo from "../assets/logo_ok.png";
 import "./Navbar.css"
 
 

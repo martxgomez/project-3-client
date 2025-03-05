@@ -1,18 +1,18 @@
 .nav-bar {
-  background-color: #ffffff;
+  background-color: white;
   padding: 20px 20px;
   width: 100%;
   display: flex;
   align-content: space-around;
-  justify-content: center;
+  justify-content: space-around;
   border-bottom: #000000 solid 1px;
-  height: 64px;
+  height: 80px;
   position: sticky;
   top: 0;
 }
 
 .nav-bar__logo {
-  width: 90px;
+  width: 110px;
   height: 40px;
   margin-right: 5.5rem;
 }

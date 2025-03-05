@@ -2,7 +2,6 @@ import "./CreatePlan.css"
 //HOOKS
 import { useState, useContext } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import Modal from "../components/Modal";
 
@@ -14,12 +13,10 @@ function CreatePlan() {
   const [location, setLocation] = useState("");
   const [isPrivate, setIsPrivate] = useState(false);
   const [frequency, setFrequency] = useState("");
-  const [image, setImage] = useState();
   const [errorMessage, setErrorMessage] = useState(undefined);
+  const [planId, setPlanId] = useState('')
 
-  const navigate = useNavigate();
-
-  const { storeToken, authUser, user } = useContext(UserContext);
+  const {authUser, user} = useContext(UserContext);
 
   const handleTitle = (e) => setTitle(e.target.value);
   const handleDetails = (e) => setDetails(e.target.value);
@@ -46,6 +43,7 @@ function CreatePlan() {
       })
       .then((response) => {
         authUser();
+        setPlanId(response.data._id);
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
@@ -103,13 +101,14 @@ function CreatePlan() {
         </div>
 
         <div className="create-plan__button">
-        <button onClick={() => setModalOpen(true)} type="submit">
+        <button className="form__btn" onClick={() => setModalOpen(true)} type="submit">
           Crear Plan
         </button>
         </div>
         <Modal
           isOpen={modalOpen}
           onChangeModal={(value) => setModalOpen(value)}
+          planId={planId}
         />
 
 

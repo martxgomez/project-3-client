@@ -1,7 +1,7 @@
 //STYLE
 // import "./App.css";
 import menu from "./assets/menu.svg";
-import closeIcon from "./assets/closeIcon.svg";
+import closeIcon from "./assets/icon-close.svg";
 
 //ROUTES
 import { Routes, Route } from "react-router-dom";
@@ -127,7 +127,7 @@ function App() {
           }
         ></Route>
         <Route
-          path="/new-plan"
+          path="/new-plan/"
           element={
             <IsPrivate>
               <CreatePlan />
