@@ -31,7 +31,7 @@ function Signup() {
 
   return (
     <div className="sign-up">
-    <h1 className="sign-up__title">Registrate</h1>
+    <h1 className="sign-up__title">Regístrate</h1>
       <form onSubmit={handleSignupSubmit}>
         <input
           type="text"
@@ -55,8 +55,8 @@ function Signup() {
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p>Already have account?</p>
-      <Link to={"/login"}> Login</Link>
+      <p>¿Tienes ya una cuenta?</p>
+      <Link to={"/login"}> Inicia sesión</Link>
     </div>
   );
 }

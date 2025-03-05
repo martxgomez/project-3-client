@@ -39,27 +39,27 @@ function Login(props) {
   return (
     <div className="login-page">
     <div>
-      <h1 className="login-page__title">Login</h1>
+      <h1 className="login-page__title">Iniciar sesión</h1>
 
       <form onSubmit={handleLoginSubmit}>
         <label>Email:</label>
         <input type="text" name="email" value={email} onChange={handleEmail} />
 
-        <label>Password:</label>
+        <label>Contraseña:</label>
         <input
-          type="text"
+          type="password"
           name="password"
           value={password}
           onChange={handlePassword}
         />
 
-        <button type="submit">Login</button>
+        <button type="submit">Inicia sesión</button>
       </form>
       </div>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p>Don't have an account yet?</p>
-      <Link to={"/sign-up"}> Sign Up</Link>
+      <p>¿Aún no tienes cuenta?</p>
+      <Link to={"/sign-up"}>Regístrate</Link>
     </div>
   );
 }
