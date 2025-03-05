@@ -38,7 +38,7 @@ function EditProfile() {
   return (
     <div className="edit-profile">
       <form onSubmit={handleEditProfile}>
-        <h1>Edita tu perfil</h1>
+        <h1 className="edit-profile__title">Edita tu perfil</h1>
         <label>Nombre:</label>
         <input
           type="text"

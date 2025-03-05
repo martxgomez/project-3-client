@@ -140,6 +140,7 @@ function EditPlan() {
             <label>Es privado</label>
           </div>
           <input
+          className="checkbox"
             type="checkbox"
             name="Is Private"
             checked={isPrivate}

@@ -1,4 +1,4 @@
-.edit-profile{
+.login-page{
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -9,21 +9,7 @@
     background-color: rgb(233, 230, 225);
 }
 
-.edit-profile__title{
-    margin-bottom: 16px;
-    font-size: 28px;
-    color:  rgb(152,82,77);
-}
-
-.edit-profile form {
-    width: 90%;
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-.edit-profile form input{
+.login-page form input{
     display: block;
     padding: 16px;
     border: none;
@@ -36,7 +22,21 @@
     margin-bottom: 8px;
 }
 
-.edit-profile form button{
+.login-page__title {
+    margin-bottom: 16px;
+    font-size: 28px;
+    color:  rgb(152,82,77);
+}
+
+.login-page form {
+    width: 90%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .login-page form button {
     background-color: rgb(152,82,77);
     color: white;
     border: none;
@@ -45,4 +45,4 @@
     font-size: 16px;
     font-weight: 600;
     margin-top: 16px;
-}
+  }

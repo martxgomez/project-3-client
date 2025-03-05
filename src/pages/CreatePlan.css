@@ -8,6 +8,8 @@
     background-color: rgb(233, 230, 225);
     height: 100vh;
     overflow: auto;
+    display: block;
+    visibility: visible;
   }
   
   .create-plan__title {

@@ -1,5 +1,5 @@
 //STYLE
-
+import "./Signup.css"
 //HOOKS
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -30,7 +30,8 @@ function Signup() {
   };
 
   return (
-    <div>
+    <div className="sign-up">
+    <h1 className="sign-up__title">Registrate</h1>
       <form onSubmit={handleSignupSubmit}>
         <input
           type="text"
