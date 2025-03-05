@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 //STYLE
-import "./sidebar.css";
+import "./Sidebar.css";
 
 
 //HOOKS
