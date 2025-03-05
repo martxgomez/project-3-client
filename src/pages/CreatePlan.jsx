@@ -33,8 +33,9 @@ function CreatePlan() {
       location,
       date,
       isPrivate,
-      frequency,
-      user: user._id,
+      frecuency,
+      image,
+      user: user._id
     };
     const storedToken = localStorage.getItem("authToken");
     axios
