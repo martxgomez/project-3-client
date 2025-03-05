@@ -6,15 +6,43 @@
     text-align: center;
     gap: 10px;
     padding: 30px;
+    background-color: rgb(233, 230, 225);
 }
+
+.edit-profile__title{
+    margin-bottom: 16px;
+    font-size: 28px;
+    color:  rgb(152,82,77);
+}
+
+.edit-profile form {
+    width: 90%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 
 .edit-profile form input{
     display: block;
+    padding: 16px;
+    border: none;
     margin-left: 10px;
     margin-bottom: 5px;
     padding-left: 10px;
+    border-radius: 8px;
+    background-color: rgba(152, 82, 77, 0.189);
+    font-size: 16px;
+    margin-bottom: 8px;
 }
 
 .edit-profile form button{
-    border-radius: 5px;
+    background-color: rgb(152,82,77);
+    color: white;
+    border: none;
+    border-radius: 24px;
+    padding: 16px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 16px;
 }
