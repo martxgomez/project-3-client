@@ -1,9 +1,9 @@
 
 import PlanList from "../components/plans/PlanList";
 import { useEffect} from "react";
-import "./Homepage.css"
+import "./HomePage.css"
 
-function Homepage({getPublicPlans, plans, formatDate}) {
+function HomePage({getPublicPlans, plans, formatDate}) {
 
 
 
@@ -24,4 +24,4 @@ function Homepage({getPublicPlans, plans, formatDate}) {
     </>
   );
 }
-export default Homepage;
+export default HomePage;

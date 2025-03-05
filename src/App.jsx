@@ -5,7 +5,7 @@ import closeIcon from "./assets/icon-close.svg";
 
 //ROUTES
 import { Routes, Route } from "react-router-dom";
-import Homepage from "./pages/Homepage";
+import HomePage from "./pages/HomePage";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Plandetails from "./pages/PlanDetails";
@@ -63,7 +63,7 @@ function App() {
         <Route
           path="/"
           element={
-            <Homepage
+            <HomePage
               getPublicPlans={getPublicPlans}
               plans={plans}
               formatDate={formatDate}
