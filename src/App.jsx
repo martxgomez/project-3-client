@@ -88,7 +88,7 @@ function App() {
         ></Route>
         <Route
           path="/details/:planId"
-          element={<Plandetails formatDate={formatDate} />}
+          element={<Plandetails formatDate={formatDate} plans={plans} />}
         ></Route>
         <Route
           path="/edit-plan/:planId"

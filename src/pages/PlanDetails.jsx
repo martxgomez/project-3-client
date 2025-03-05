@@ -1,18 +1,23 @@
 //HOOKS
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
-import "./PlanDetails.css"
+import { UserContext } from "../context/UserContext";
+import "./PlanDetails.css";
 
 //COMPONENTS
 import Map from "../components/Map";
+import Comments from "../components/Comments";
 
 //STYLE
 
-function PlanDetails({formatDate}) {
+function PlanDetails({ formatDate }) {
   const { planId } = useParams();
   const [plan, setPlan] = useState();
   const [loading, setLoading] = useState(true);
+  const [joined, setJoined] = useState(false);
+
+  const { user } = useContext(UserContext);
 
   //GET DATA
   useEffect(() => {
@@ -27,8 +32,10 @@ function PlanDetails({formatDate}) {
           setPlan(response.data);
           setLoading(false);
         })
-        .catch((error) => console.log("Error getting data:", error));
-      setLoading(false);
+        .catch((error) => {
+          console.log("Error getting data:", error);
+          setLoading(false);
+        });
     };
 
     getPlan();
@@ -37,17 +44,31 @@ function PlanDetails({formatDate}) {
   if (loading) return <p>Cargando...</p>;
   if (!plan) return <p>Plan no encontrado</p>;
 
-  const {
-    title,
-    user,
-    date,
-    location,
-    isPrivate,
-    image,
-    details,
-    attendance,
-    comments,
-  } = plan;
+  //CHECK IF PLANS' ID IS INCLUDED IN ARRAY OF JOINED
+  if (user && user.myPlans) {
+    const plansId = user.myPlans.map((plan) => plan._id);
+    setJoined(plansId.includes(_id));
+  }
+
+  const handleJoinPlan = () => {
+    const requestBody = { planId: plan._id };
+    const storedToken = localStorage.getItem("authToken");
+
+    axios
+      .put(
+        `${import.meta.env.VITE_API_URL}/auth/${user._id}/my-plans`,
+        requestBody,
+        {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        }
+      )
+      .then(() => {
+        setJoined(true);
+      })
+      .catch((error) =>
+        console.error("Error al unirse o cancelar el plan", error)
+      );
+  };
 
   const handleAttendance = (attendance) => {
     if (attendance.length === 0) {
@@ -70,32 +91,26 @@ function PlanDetails({formatDate}) {
   return (
     <>
       <section className="plan-details">
-      <img className="plan-details__image" src={image} alt={image} />
-        <h2>{title}</h2>
-        <h3>{user.name}</h3>
-        <h3>{formatDate(date)}</h3>
-        <h3>{location}</h3>
-        <h3>{isPrivate}</h3>
+        <img
+          className="plan-details__image"
+          src={plan.image}
+          alt={plan.image}
+        />
+        <h2>{plan.title}</h2>
+        <h3>{plan.name}</h3>
+        <h3>{formatDate(plan.date)}</h3>
+        <h3>{plan.location}</h3>
+        <h3>{plan.isPrivate}</h3>
         <h3>Detalles:</h3>
-        <p>{details}</p>
+        <p>{plan.details}</p>
       </section>
-      {location && <Map location={location} />}
+      {plan.location && <Map location={plan.location} />}
       <section>
         <h3>Asistentes:</h3>
         <>{handleAttendance(plan.attendance)}</>
       </section>
 
-      {/* por definir */}
-      <section>
-        <Link to="/add-coment">
-          {" "}
-          <button>Añadir comentario</button>
-        </Link>
-        <Link to="/comments/:planId">
-          {" "}
-          <button>Ver todos</button>
-        </Link>
-      </section>
+      <Comments planId={planId} />
     </>
   );
 }
