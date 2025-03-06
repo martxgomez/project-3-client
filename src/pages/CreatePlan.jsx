@@ -1,4 +1,4 @@
-import "./CreatePlan.css"
+import "./CreatePlan.css";
 //HOOKS
 import { useState, useContext } from "react";
 import axios from "axios";
@@ -14,9 +14,9 @@ function CreatePlan() {
   const [isPrivate, setIsPrivate] = useState(false);
   const [frequency, setFrequency] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
-  const [planId, setPlanId] = useState('')
-
-  const {authUser, user} = useContext(UserContext);
+  const [planId, setPlanId] = useState("");
+  const [image, setImage] = useState("");
+  const { authUser, user } = useContext(UserContext);
 
   const handleTitle = (e) => setTitle(e.target.value);
   const handleDetails = (e) => setDetails(e.target.value);
@@ -24,6 +24,7 @@ function CreatePlan() {
   const handleDate = (e) => setDate(e.target.value);
   const handleIsPrivate = (e) => setIsPrivate(e.target.checked);
   const handleFrequency = (e) => setFrequency(e.target.value);
+  const handleImage = (e) => setImage(e.target.value);
 
   const handleCreatePlanSubmit = (e) => {
     e.preventDefault();
@@ -33,9 +34,9 @@ function CreatePlan() {
       location,
       date,
       isPrivate,
-      frecuency,
       image,
-      user: user._id
+      frequency,
+      user: user._id,
     };
     const storedToken = localStorage.getItem("authToken");
     axios
@@ -71,8 +72,6 @@ function CreatePlan() {
         <label>Fecha</label>
         <input type="Date" name="Date" value={date} onChange={handleDate} />
 
-        
-
         <label>Ubicación</label>
         <input
           type="text"
@@ -90,29 +89,36 @@ function CreatePlan() {
           <option value="once">Una vez</option>
         </select>
 
+        <label>Imagen</label>
+        <input type="text" name="" value={image} placeholder="Ej: http://www.ejemplo.com" onChange={handleImage} />
+
         <div className="create-plan__checkbox">
-        <div className="create-plan__text"><label>Es privado</label></div>
-        <input 
-          className="checkbox"
-          type="checkbox"
-          name="Is Private"
-          checked={isPrivate}
-          onChange={handleIsPrivate}
-        />
+          <div className="create-plan__text">
+            <label>Es privado</label>
+          </div>
+          <input
+            className="checkbox"
+            type="checkbox"
+            name="Is Private"
+            checked={isPrivate}
+            onChange={handleIsPrivate}
+          />
         </div>
 
         <div className="create-plan__button">
-        <button className="form__btn" onClick={() => setModalOpen(true)} type="submit">
-          Crear Plan
-        </button>
+          <button
+            className="form__btn"
+            onClick={() => setModalOpen(true)}
+            type="submit"
+          >
+            Crear Plan
+          </button>
         </div>
         <Modal
           isOpen={modalOpen}
           onChangeModal={(value) => setModalOpen(value)}
           planId={planId}
         />
-
-
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
     </div>
