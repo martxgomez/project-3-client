@@ -10,7 +10,7 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Plandetails from "./pages/PlanDetails";
 import UserPage from "./pages/UserPage";
-import UserHomepage from "./pages/UserHomepage";
+import UserHomePage from "./pages/UserHomePage";
 import EditProfile from "./pages/EditProfile";
 import CreatePlan from "./pages/CreatePlan";
 import ErrorPage from "./pages/ErrorPage";
@@ -102,7 +102,7 @@ function App() {
           path="/user-homepage/"
           element={
             <IsPrivate>
-              <UserHomepage
+              <UserHomePage
                 getPublicPlans={getPublicPlans}
                 plans={plans}
                 formatDate={formatDate}
