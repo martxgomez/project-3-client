@@ -4,9 +4,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { UserContext } from "../context/UserContext";
 import { useContext } from "react";
-import "./Userpage.css"
+import "./UserPage.css"
 
-function Userpage() {
+function UserPage() {
   const [loading, setLoading] = useState(true);
   const [updatedUser, setUpdatedUser] = useState({});
   const {authUser, user} = useContext(UserContext);
@@ -43,4 +43,4 @@ function Userpage() {
     </div>
   );
 }
-export default Userpage;
+export default UserPage;
