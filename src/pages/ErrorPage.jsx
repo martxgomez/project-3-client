@@ -1,7 +1,7 @@
 //Import images
 import errorImage from "../assets/404.png"
 
-function Errorpage() {
+function ErrorPage() {
   return (
     <>
       <h1>Page not found</h1>
@@ -9,4 +9,4 @@ function Errorpage() {
     </>
   );
 }
-export default Errorpage;
+export default ErrorPage;

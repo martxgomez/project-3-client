@@ -1,5 +1,5 @@
 import PlanCard from "./PlanCard";
-import "./Planlist.css"
+import "./PlanList.css"
 
 function PlanList({ plans, formatDate}) {
   

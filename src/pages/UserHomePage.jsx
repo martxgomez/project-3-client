@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import arrowDown from "../assets/arrow-down.svg"
 import arrowRight from "../assets/arrow-right.svg"
 
-function UserHomepage({ getPublicPlans, plans, formatDate }) {
+function UserHomePage({ getPublicPlans, plans, formatDate }) {
   const [createdPlans, setCreatedPlans] = useState([]);
   const [joinedPlans, setJoinedPlans] = useState([]);
   const [createdOpen, setCreatedOpen] = useState(false);
@@ -89,4 +89,4 @@ function UserHomepage({ getPublicPlans, plans, formatDate }) {
     </main>
   );
 }
-export default UserHomepage;
+export default UserHomePage;
