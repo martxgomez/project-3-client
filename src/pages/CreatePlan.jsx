@@ -57,10 +57,10 @@ function CreatePlan() {
       <h1 className="create-plan__title">Crea tu Plan</h1>
 
       <form onSubmit={handleCreatePlanSubmit}>
-        <label>Titulo</label>
+        <label><h3>Titulo</h3></label>
         <input type="Title" name="Title" value={title} onChange={handleTitle} />
 
-        <label>Detalles</label>
+        <label><h3>Detalles</h3></label>
         <input
           type="text"
           name="Details"
@@ -68,12 +68,12 @@ function CreatePlan() {
           onChange={handleDetails}
         />
 
-        <label>Fecha</label>
+        <label><h3>Fecha</h3></label>
         <input type="Date" name="Date" value={date} onChange={handleDate} />
 
         
 
-        <label>Ubicación</label>
+        <label><h3>Ubicación</h3></label>
         <input
           type="text"
           value={location}
@@ -81,7 +81,7 @@ function CreatePlan() {
           placeholder="Ej: Madrid"
         />
 
-        <label>Frecuencia</label>
+        <label><h3>Frecuencia</h3></label>
         <select value={frequency} onChange={handleFrequency}>
           <option value="">Seleccione una opción</option>
           <option value="daily">Diario</option>
@@ -91,7 +91,7 @@ function CreatePlan() {
         </select>
 
         <div className="create-plan__checkbox">
-        <div className="create-plan__text"><label>Es privado</label></div>
+        <div className="create-plan__text"><label><h4>Es privado</h4></label></div>
         <input 
           className="checkbox"
           type="checkbox"
