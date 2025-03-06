@@ -100,9 +100,6 @@ function Comments({ planId }) {
                   alt={`Foto de ${comment.user.name}`}
                 />
 
-                {/* {joinedOpen ? <img src={arrowDown}/> : <img src={arrowRight}/>} Planes a los que asisto
-                        </h3> */}
-
                 <b>{comment.user.name}</b>
                 <p>{comment.details}</p>
                 {user && (
