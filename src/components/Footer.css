@@ -1,7 +1,13 @@
 .footer {
-    background-color: rgb(131, 139, 127);
-    padding: 2rem 1rem;
+    background-color: #a74d4a;
+    padding: 3rem 1rem;
     margin-top: auto;
+    height: auto;
+
+    h5,h4,h3{
+      color: #eae6e0;
+    }
+
   }
   
   .footer__list {
@@ -17,17 +23,20 @@
   }
   
   .footer__logo {
-    font-weight: 700;
-    font-size: 1.5rem;
-    flex-basis: 100%;
-    text-align: center;
+    display: flex;
+    width:auto;
+    height: 40px;
     margin-bottom: 1rem;
   }
   
   .footer__members {
     font-size: 0.9rem;
     flex-basis: 100%;
-    text-align: center;
+    text-align:center;
+    justify-content: center;
+    padding-left: 70px;
+    padding-right: 70px;
+    
   }
   
   
@@ -46,4 +55,11 @@
     height: 24px;
    
   }
+
+  .footer__repos{
+
+    display: flex;
+  }
+  
+
   
