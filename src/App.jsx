@@ -9,11 +9,11 @@ import HomePage from "./pages/HomePage";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Plandetails from "./pages/PlanDetails";
-import Userpage from "./pages/Userpage";
+import UserPage from "./pages/UserPage";
 import UserHomepage from "./pages/UserHomepage";
 import EditProfile from "./pages/EditProfile";
 import CreatePlan from "./pages/CreatePlan";
-import Errorpage from "./pages/Errorpage";
+import ErrorPage from "./pages/ErrorPage";
 import AboutUs from "./pages/AboutUs";
 import EditPlan from "./pages/EditPlan";
 
@@ -114,7 +114,7 @@ function App() {
           path="/user-details/"
           element={
             <IsPrivate>
-              <Userpage />
+              <UserPage />
             </IsPrivate>
           }
         ></Route>
@@ -134,7 +134,7 @@ function App() {
             </IsPrivate>
           }
         ></Route>
-        <Route path="/*" element={<Errorpage />}></Route>
+        <Route path="/*" element={<ErrorPage />}></Route>
         <Route path="/about" element={<AboutUs />}></Route>
       </Routes>
       <Footer />
