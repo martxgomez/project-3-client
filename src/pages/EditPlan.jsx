@@ -102,10 +102,10 @@ function EditPlan() {
       <h1 className="edit-plan__title">Actualizar Plan</h1>
 
       <form onSubmit={handleEditPlanSubmit}>
-        <label>Titulo:</label>
+        <label><h3>Titulo:</h3></label>
         <input type="text" name="Title" value={title} onChange={handleTitle} />
 
-        <label>Detalles:</label>
+        <label><h3>Detalles:</h3></label>
         <input
           type="text"
           name="Details"
@@ -113,10 +113,10 @@ function EditPlan() {
           onChange={handleDetails}
         />
 
-        <label>Fecha:</label>
+        <label><h3>Fecha:</h3></label>
         <input type="Date" name="Date" value={date} onChange={handleDate} />
 
-        <label>Ubicación:</label>
+        <label><h3>Ubicación:</h3></label>
         <input
           type="text"
           name="Location"
@@ -124,7 +124,7 @@ function EditPlan() {
           onChange={handleLocation}
         />
 
-        <label>Frecuencia:</label>
+        <label><h3>Frecuencia:</h3></label>
         <select value={frequency} onChange={handlefrequency}>
           <option value="">Seleccione una opción</option>
           <option value="daily">Diario</option>
@@ -133,11 +133,11 @@ function EditPlan() {
           <option value="once">Una vez</option>
         </select>
 
-        <label>Imagen:</label>
+        <label><h3>Imagen:</h3></label>
         <input type="text" name="" value={image} onChange={handleImage} />
         <div className="edit-plan__private">
           <div className="edit-plan__text">
-            <label>Es privado</label>
+            <label><h4>Es privado</h4></label>
           </div>
           <input
           className="checkbox"

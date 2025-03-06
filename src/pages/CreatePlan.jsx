@@ -15,7 +15,7 @@ function CreatePlan() {
   const [frequency, setFrequency] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [planId, setPlanId] = useState("");
-
+  const [image, setImage] = useState("");
   const { authUser, user } = useContext(UserContext);
 
   const handleTitle = (e) => setTitle(e.target.value);
@@ -24,6 +24,7 @@ function CreatePlan() {
   const handleDate = (e) => setDate(e.target.value);
   const handleIsPrivate = (e) => setIsPrivate(e.target.checked);
   const handleFrequency = (e) => setFrequency(e.target.value);
+  const handleImage = (e) => setImage(e.target.value);
 
   const handleCreatePlanSubmit = (e) => {
     e.preventDefault();
@@ -33,8 +34,8 @@ function CreatePlan() {
       location,
       date,
       isPrivate,
-      frequency,
       image,
+      frequency,
       user: user._id,
     };
     const storedToken = localStorage.getItem("authToken");
@@ -57,10 +58,10 @@ function CreatePlan() {
       <h1 className="create-plan__title">Crea tu Plan</h1>
 
       <form onSubmit={handleCreatePlanSubmit}>
-        <label>Titulo</label>
+        <label><h3>Titulo</h3></label>
         <input type="Title" name="Title" value={title} onChange={handleTitle} />
 
-        <label>Detalles</label>
+        <label><h3>Detalles</h3></label>
         <input
           type="text"
           name="Details"
@@ -68,10 +69,10 @@ function CreatePlan() {
           onChange={handleDetails}
         />
 
-        <label>Fecha</label>
+        <label><h3>Fecha</h3></label>
         <input type="Date" name="Date" value={date} onChange={handleDate} />
 
-        <label>Ubicación</label>
+        <label><h3>Ubicación</h3></label>
         <input
           type="text"
           value={location}
@@ -79,7 +80,7 @@ function CreatePlan() {
           placeholder="Ej: Madrid"
         />
 
-        <label>Frecuencia</label>
+        <label><h3>Frecuencia</h3></label>
         <select value={frequency} onChange={handleFrequency}>
           <option value="">Seleccione una opción</option>
           <option value="daily">Diario</option>
@@ -88,7 +89,18 @@ function CreatePlan() {
           <option value="once">Una vez</option>
         </select>
 
+        <label>Imagen</label>
+        <input type="text" name="" value={image} placeholder="Ej: http://www.ejemplo.com" onChange={handleImage} />
+
         <div className="create-plan__checkbox">
+        <div className="create-plan__text"><label><h4>Es privado</h4></label></div>
+        <input 
+          className="checkbox"
+          type="checkbox"
+          name="Is Private"
+          checked={isPrivate}
+          onChange={handleIsPrivate}
+        />
           <div className="create-plan__text">
             <label>Es privado</label>
           </div>

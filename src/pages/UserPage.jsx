@@ -36,6 +36,7 @@ function UserPage() {
   return (
     <div>
       <div className="user-page">
+      <h2>Tú perfil</h2>
         <p>Nombre: {updatedUser.name}</p>
         <p>Email: {updatedUser.email}</p>
         <button onClick={() => navigate("/user-edit") } className="user-page__button">Edita tu perfil</button>
