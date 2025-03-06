@@ -10,6 +10,8 @@ import logoLocation from "../assets/icono_ubicacion.png";
 //COMPONENTS
 import Map from "../components/Map";
 import Comments from "../components/Comments";
+import DeletePlanButton from "../components/DeletePlanButton";
+import EditPlanButton from "../components/EditPlanButton";
 
 //STYLE
 
@@ -39,6 +41,7 @@ function PlanDetails({ formatDate }) {
           setLoading(false);
         });
     };
+    
 
     getPlan();
   }, [planId]);
@@ -90,17 +93,15 @@ function PlanDetails({ formatDate }) {
     }
   };
 
-
   return (
     <>
-    
       <section className="plan-details">
-        <img className="plan-details__image"
+        <img
+          className="plan-details__image"
           src={plan.image}
-          alt={plan.image}/>
-           <button
-          className="plan-details__join-button"
-          onClick={handleJoinPlan}>
+          alt={plan.image}
+        />
+        <button className="plan-details__join-button" onClick={handleJoinPlan}>
           {joined ? "Cancelar" : "Unirme"}
         </button>
 
@@ -124,10 +125,14 @@ function PlanDetails({ formatDate }) {
       <section className="plan-details__attendance">
         <h3>Asistentes:</h3>
         <>{handleAttendance(plan.attendance)}</>
-       
       </section>
 
       <Comments planId={planId} />
+      <DeletePlanButton />
+      <EditPlanButton />
+      <Link to="/" className="back-btn">
+        Volver
+      </Link>
     </>
   );
 }

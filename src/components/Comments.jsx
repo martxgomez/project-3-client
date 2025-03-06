@@ -29,8 +29,6 @@ function Comments({ planId }) {
       details: newComment,
     };
 
-    console.log(user);
-
     const storedToken = localStorage.getItem("authToken");
 
     axios
@@ -53,17 +51,21 @@ function Comments({ planId }) {
 
   const handleDeleteComment = (commentId) => {
     const storedToken = localStorage.getItem("authToken");
-    axios
-      .delete(`${import.meta.env.VITE_API_URL}/api/comments/${commentId}`, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      })
-      .then((response) => {
-        getComments();
-      })
-      .catch((error) => {
-        const errorDescription = error.response.data.message;
-        setErrorMessage("Error al borrar el comentario:", errorDescription);
-      });
+    if (user && user._id) {
+      if (commentId.user._id === user._id) {
+        axios
+          .delete(`${import.meta.env.VITE_API_URL}/api/comments/${commentId}`, {
+            headers: { Authorization: `Bearer ${storedToken}` },
+          })
+          .then((response) => {
+            getComments();
+          })
+          .catch((error) => {
+            const errorDescription = error.response.data.message;
+            setErrorMessage("Error al borrar el comentario:", errorDescription);
+          });
+      }
+    }
   };
 
   useEffect(() => {
@@ -97,9 +99,13 @@ function Comments({ planId }) {
                   src={comment.user.image}
                   alt={`Foto de ${comment.user.name}`}
                 />
+
+                {/* {joinedOpen ? <img src={arrowDown}/> : <img src={arrowRight}/>} Planes a los que asisto
+                        </h3> */}
+
                 <b>{comment.user.name}</b>
                 <p>{comment.details}</p>
-                {comment.user._id === user._id && (
+                {user && (
                   <button onClick={() => handleDeleteComment(comment._id)}>
                     🗑️
                   </button>
