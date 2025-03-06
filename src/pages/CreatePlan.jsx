@@ -33,7 +33,7 @@ function CreatePlan() {
       location,
       date,
       isPrivate,
-      frecuency,
+      frequency,
       image,
       user: user._id,
     };
