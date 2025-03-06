@@ -21,6 +21,8 @@ function UserHomePage({ getPublicPlans, plans, formatDate }) {
   //GET PLANS
 
   const getCreatedPlans = () => {
+    console.log(createdPlans);
+    
     axios
       .get(
         `${import.meta.env.VITE_API_URL}/auth/user/${user._id}/created-plans`, {

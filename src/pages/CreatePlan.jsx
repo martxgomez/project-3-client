@@ -46,6 +46,7 @@ function CreatePlan() {
       .then((response) => {
         authUser();
         setPlanId(response.data._id);
+        setModalOpen(true)
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
@@ -126,12 +127,16 @@ function CreatePlan() {
         <div className="create-plan__button">
           <button
             className="form__btn"
-            onClick={() => setModalOpen(true)}
             type="submit"
           >
             Crear Plan
           </button>
         </div>
+
+
+
+
+ {/* ESTO ESTÁ FALLANDO */}
         <Modal
           isOpen={modalOpen}
           onChangeModal={(value) => setModalOpen(value)}
