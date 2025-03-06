@@ -47,6 +47,7 @@ function CreatePlan() {
         authUser();
         setPlanId(response.data._id);
         setModalOpen(true)
+        console.log("Datos enviados:", requestBody);
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
