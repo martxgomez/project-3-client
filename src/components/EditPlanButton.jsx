@@ -1,20 +1,19 @@
-import { useNavigate, useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom";
 
 function EditPlanButton() {
+  const navigate = useNavigate();
 
-const navigate = useNavigate()
+  const { planId } = useParams();
 
-const { planId } = useParams();
-
-const handleEditPlanButton = () => {
+  const handleEditPlanButton = () => {
     navigate(`/edit-plan/${planId}`);
-};
+  };
 
-    return(
-        <div className="edit-button">
-            <button onClick={handleEditPlanButton}>Editar Plan</button>
-        </div>
-    )
+  return (
+    <div className="edit-btn">
+      <button onClick={handleEditPlanButton}>Editar</button>
+    </div>
+  );
 }
 
-export default EditPlanButton
+export default EditPlanButton;

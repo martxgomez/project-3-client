@@ -1,18 +1,19 @@
-import axios from "axios"
+import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
 import { UserContext } from "../context/UserContext";
 
 function DeletePlanButton() {
-const [errorMessage, setErrorMessage] = useState(undefined);
+  const [errorMessage, setErrorMessage] = useState(undefined);
+  const [showConfirmation, setShowConfirmation] = useState(false);
 
-const { planId } = useParams();
+  const { planId } = useParams();
 
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
-const { storeToken, authUser } = useContext(UserContext);
+  const { authUser } = useContext(UserContext);
 
-const handleDeletePlanSubmit = (e) => {
+  const handleDeletePlanSubmit = (e) => {
     e.preventDefault();
     const storedToken = localStorage.getItem("authToken");
     axios
@@ -29,11 +30,29 @@ const handleDeletePlanSubmit = (e) => {
       });
   };
 
-    return (
-        <div className="delete-button">
-            <button onClick={handleDeletePlanSubmit}>🗑️</button>
+  return (
+    <div className="delete-button">
+      <button onClick={() => setShowConfirmation(true)}>🗑️</button>
+      {showConfirmation && (
+        <div className="pop-up-container">
+          <div className="pop-up-content">
+            <h3>¿Estas seguro de eliminar este plan?</h3>
+            <div className="pop-up-buttons">
+              <button
+                onClick={() => setShowConfirmation(false)}
+                className="btn-cancel"
+              >
+                No
+              </button>
+              <button onClick={handleDeletePlanSubmit} className="btn-confirm">
+                Sí
+              </button>
+            </div>
+          </div>
         </div>
-    )
+      )}
+    </div>
+  );
 }
 
-export default DeletePlanButton
+export default DeletePlanButton;
