@@ -46,6 +46,8 @@ function CreatePlan() {
       .then((response) => {
         authUser();
         setPlanId(response.data._id);
+        setModalOpen(true)
+        console.log("Datos enviados:", requestBody);
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
@@ -124,14 +126,18 @@ function CreatePlan() {
         </div>
 
         <div className="create-plan__button">
-        <button
-  className="form__btn"
-  onClick={() => setModalOpen(true)} // ✅ Sin "{}" vacíos
-  type="submit"
->
-  Crear Plan
-</button>
+          <button
+            className="form__btn"
+            type="submit"
+          >
+            Crear Plan
+          </button>
         </div>
+
+
+
+
+ {/* ESTO ESTÁ FALLANDO */}
         <Modal
           isOpen={modalOpen}
           onChangeModal={(value) => setModalOpen(value)}

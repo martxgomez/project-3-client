@@ -7,7 +7,9 @@ import { useNavigate } from "react-router-dom";
 function Modal({ isOpen, onChangeModal, planId }) {
   const navigate = useNavigate();
   const url = `https://nexo-plans.netlify.app/#/details/${planId}`;
-  const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(url)}`;
+  const whatsappUrl = () => {
+    return `https://wa.me/?text=${encodeURIComponent(url)}`;
+  };
 
   const closeModal = () => {
     onChangeModal(!isOpen);
@@ -30,7 +32,7 @@ function Modal({ isOpen, onChangeModal, planId }) {
         </h2>
         <img className="modal__whatsapp-icon" src={iconWhatsapp} />
         <a
-          href={whatsappUrl}
+      
           className="modal__whatsapp-btn"
           onClick={whatsappUrl}
         >
