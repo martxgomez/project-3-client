@@ -3,9 +3,6 @@ import axios from "axios";
 import { useState, useEffect, useContext } from "react";
 import { useParams, Link, Navigate, useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
-import "./PlanDetails.css";
-import calendar from "../assets/calendar.svg";
-import logoLocation from "../assets/icono_ubicacion.png";
 
 //COMPONENTS
 import Map from "../components/Map";
@@ -13,7 +10,11 @@ import Comments from "../components/Comments";
 import DeletePlanButton from "../components/DeletePlanButton";
 import EditPlanButton from "../components/EditPlanButton";
 
+import calendar from "../assets/calendar.svg";
+import logoLocation from "../assets/icono_ubicacion.png";
+
 //STYLE
+import "./PlanDetails.css";
 
 function PlanDetails({ formatDate }) {
   const { planId } = useParams();
@@ -56,6 +57,10 @@ function PlanDetails({ formatDate }) {
   }
 
   const handleJoinPlan = () => {
+    if (!user) {
+      navigate("/log-in");
+      return;
+    }
     const requestBody = { planId: plan._id };
     const storedToken = localStorage.getItem("authToken");
 
@@ -68,9 +73,6 @@ function PlanDetails({ formatDate }) {
         }
       )
       .then(() => {
-        if (!user) {
-          navigate("/log-in");
-        }
         setJoined(true);
       })
       .catch((error) =>
