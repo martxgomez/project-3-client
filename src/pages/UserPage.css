@@ -1,9 +1,16 @@
 .user-page {
+  min-height: 50vh;
+  padding-top: 2rem;
     font-size: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: rgb(233, 230, 225);
+    
+      h2{
+        color: #a74d4a;
+      }
+    
   }
 
   .user-page__button {

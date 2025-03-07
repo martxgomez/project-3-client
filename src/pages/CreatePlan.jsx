@@ -101,7 +101,7 @@ function CreatePlan() {
           <option value="once">Una vez</option>
         </select>
 
-        <label>Imagen</label>
+        <label><h3>Imagen</h3></label>
         <input
           type="text"
           name=""
