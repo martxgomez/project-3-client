@@ -124,13 +124,13 @@ function CreatePlan() {
         </div>
 
         <div className="create-plan__button">
-          <button
-            className="form__btn"
-            onClick={() => setModalOpen(true)}
-            type="submit"
-          >
-            Crear Plan
-          </button>
+        <button
+  className="form__btn"
+  onClick={() => setModalOpen(true)} // ✅ Sin "{}" vacíos
+  type="submit"
+>
+  Crear Plan
+</button>
         </div>
         <Modal
           isOpen={modalOpen}
