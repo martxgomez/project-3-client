@@ -1,0 +1,45 @@
+.comments {
+  margin-left: 15px;
+  margin-bottom: 15px;
+}
+
+.comments__comments{
+    margin-left: 15px;
+
+}
+.comments__form {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.comments__form__textarea {
+  width: 250px;
+  height: 32px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  resize: vertical;
+  min-height: 18px;
+  max-height: 200px;
+}
+
+.comments__form__button {
+  background-color: #a74d4a;
+  height: 30px;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+.comments__delete-button {
+    color: #a74d4a;
+    border: none;
+    background-color: white;
+   
+
+    
+
+}

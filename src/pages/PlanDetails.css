@@ -59,31 +59,24 @@
 
 
 .plan-details__buttons {
+  display: flex;
+  gap: 10px;
   margin: 1rem;
 
+
 }
 
-.plan-details__buttons-add{
+.plan-details__back-button{
 
-  border-color: #a74d4a;
-  background-color: white;
-  color: #a74d4a;
-  border-radius: 10px;
-  margin-right: 1rem;
-  width: 140px;
-  height: 30px;
-  border: no;
-  font-weight: bold;
+  display: flex;
+  flex-direction: inherit;
+  margin: 1rem;
+  align-items:end;
+ 
+  h4{
+    color: #a74d4a;
+  }
 }
+  
 
-.plan-details__buttons-show{
 
-  border-color: #a74d4a;
-  background-color: white;
-  color: #a74d4a;
-  border-radius: 10px;
-  margin-right: 1rem;
-  width: 100px;
-  height: 30px;
-  font-weight: bold;
-}

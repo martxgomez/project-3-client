@@ -121,17 +121,20 @@ function PlanDetails({ formatDate }) {
           <p>{plan.details}</p>
         </div>
       </section>
+      
       {plan.location && <Map location={plan.location} />}
+      <div className="plan-details__buttons"><DeletePlanButton /><EditPlanButton /></div>
       <section className="plan-details__attendance">
         <h3>Asistentes:</h3>
         <>{handleAttendance(plan.attendance)}</>
       </section>
+      
 
       <Comments planId={planId} />
-      <DeletePlanButton />
-      <EditPlanButton />
-      <Link to="/" className="back-btn">
-        Volver
+    
+      
+      <Link to="/" className="plan-details__back-button">
+       <h4> ←Volver</h4>
       </Link>
     </>
   );
