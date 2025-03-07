@@ -111,7 +111,7 @@ function AboutUs() {
           className="about-us__contact-link"
           href="https://github.com/Joseinacio25"
         >
-          <img src={githubIcon} alt="Github José" /> <p>Joseinacio25</p>
+          <img src={githubIconNegro} alt="Github José" /> <p>Joseinacio25</p>
         </a>
         <a
           className="about-us__contact-link"

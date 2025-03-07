@@ -36,7 +36,7 @@
   font-weight:bolder;
   align-content: center;
   justify-items: center;
- align-items: center;
+  align-items: center;
 }
 
 .plan-details__details__location {
@@ -80,3 +80,57 @@
   
 
 
+@media (min-width: 1200px) {
+
+
+  .plan-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto; 
+    max-width: 1200px;
+  
+  }
+
+  .plan-details__map {
+    max-width: 1200px;
+    
+}
+  
+.plan-details__image {
+  display: flex;
+  width: 100%; /* Mejor usar un ancho relativo */
+  max-width: 1200px; /* Asegurar que no supere este tamaño */
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente si es necesario */
+}
+
+.plan-details__details {
+    display: flex;
+    flex-direction: column;
+   
+   
+    margin: 2rem;
+}
+
+.plan-details__join-button {
+    width: auto;
+    padding: 15px 20px; /* Aumentar el padding */
+    font-size: 18px; /* Aumentar el tamaño de la fuente */
+}
+
+.plan-details__details__date,
+.plan-details__details__location {
+    font-size: 16px; /* Aumentar el tamaño de la fuente */
+}
+
+.plan-details__buttons {
+    display: flex;
+    gap: 15px; /* Aumentar el espacio entre los botones */
+}
+
+.plan-details__back-button {
+    margin: 2rem;
+    align-items: flex-start; /* Alinear el texto a la izquierda */
+}
+}

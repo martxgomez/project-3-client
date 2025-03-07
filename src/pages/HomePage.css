@@ -24,3 +24,38 @@
     
 }
 
+@media (min-width: 1200px) {
+    .home-page__header {
+        background-position: center;
+        width: 1200px; /* Aumentar el tamaño del header */
+        height: 650px; /* Aumentar la altura del header */
+        padding-top: 50px; /* Ajustar padding superior */
+    
+        display: flex; /* Necesario para que flexbox funcione */
+        justify-content: center; /* Centra horizontalmente el contenido */
+        align-items: center; /* Centra verticalmente el contenido */
+    
+        margin: 0 auto; /* Centra el header en la página */
+    }
+  
+    .home-page__header h1 {
+      font-size: 3rem; /* Aumentar el tamaño de la fuente del título */
+      color: #c5c5c5; /* Cambiar color de texto si es necesario */
+      display: flex;
+      
+      justify-content: center;
+    }
+  }
+  
+  /* Media query para pantallas más pequeñas */
+  @media (max-width: 768px) {
+    .home-page__header {
+      width: 100%; /* Hacer que el header ocupe todo el ancho en pantallas pequeñas */
+      height: 400px; /* Ajustar la altura para pantallas más pequeñas */
+      padding-top: 20px; /* Reducir el padding superior */
+    }
+  
+    .home-page__header h1 {
+      font-size: 1.5rem; /* Reducir el tamaño del texto */
+    }
+  }

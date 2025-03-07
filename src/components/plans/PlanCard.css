@@ -36,3 +36,47 @@
 .plan-card__button {
   margin-bottom: 1rem;
 }
+
+
+@media (min-width: 1200px) {
+  .plan-card {
+    padding-top: 1.8rem ;
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto; 
+    
+  }
+  
+  .plan-card__main {
+    flex-direction: row;
+    justify-content: space-between;
+    
+    
+    
+  }
+
+  .plan-card__image {
+    width: 200px;
+}
+
+.plan-card__details {
+    margin-right: 80px;
+    
+     
+}
+
+.plan-card__button {
+    margin-bottom: 1.5rem;
+}
+
+
+@media (max-width: 768px) {
+    .plan-card__image {
+        width: 120px; 
+    }
+  }
+    .plan-card__main {
+        padding: 0.5rem; 
+    }
+}

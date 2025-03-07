@@ -120,9 +120,8 @@ function PlanDetails({ formatDate }) {
           <h4>Detalles:</h4>
           <p>{plan.details}</p>
         </div>
-      </section>
-      
-      {plan.location && <Map location={plan.location} />}
+     
+      <div className="plan-details__map">{plan.location && <Map location={plan.location} />}</div>
       <div className="plan-details__buttons"><DeletePlanButton /><EditPlanButton /></div>
       <section className="plan-details__attendance">
         <h3>Asistentes:</h3>
@@ -136,6 +135,8 @@ function PlanDetails({ formatDate }) {
       <Link to="/" className="plan-details__back-button">
        <h4> ←Volver</h4>
       </Link>
+      </section>
+      
     </>
   );
 }
