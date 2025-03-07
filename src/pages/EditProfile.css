@@ -7,6 +7,9 @@
     gap: 10px;
     padding: 30px;
     background-color: rgb(233, 230, 225);
+    h3{
+        color: #a74d4a;
+    }
 }
 
 .edit-profile__title{
@@ -38,6 +41,10 @@
 
 .edit-profile form button{
     background-color: #a74d4a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
     color: white;
     border: none;
     border-radius: 10px;
@@ -45,4 +52,5 @@
     font-size: 16px;
     margin-top: 1.5rem;
     margin-bottom: 1rem;
+    align-self: center; /* Asegura que el botón se alinee en el centro dentro del formulario */
 }

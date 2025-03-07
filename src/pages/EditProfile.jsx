@@ -39,7 +39,7 @@ function EditProfile() {
     <div className="edit-profile">
       <form onSubmit={handleEditProfile}>
         <h1 className="edit-profile__title">Edita tu perfil</h1>
-        <label>Nombre:</label>
+        <label><h3>Nombre:</h3></label>
         <input
           type="text"
           name="Nombre"
@@ -48,7 +48,7 @@ function EditProfile() {
             setName(e.target.value);
           }}
         />
-        <label>Correo:</label>
+        <label><h3>Correo:</h3></label>
         <input
           type="text"
           name="Correo"

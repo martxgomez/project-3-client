@@ -2,10 +2,10 @@ import axios from "axios";
 import PlanList from "../components/plans/PlanList";
 import { useEffect, useState, useContext } from "react";
 import { UserContext } from "../context/UserContext";
-import "./UserHomePage.css"
+import "./UserHomePage.css";
 import { useNavigate } from "react-router-dom";
-import arrowDown from "../assets/arrow-down.svg"
-import arrowRight from "../assets/arrow-right.svg"
+import arrowDown from "../assets/arrow-down.svg";
+import arrowRight from "../assets/arrow-right.svg";
 
 function UserHomePage({ getPublicPlans, plans, formatDate }) {
   const [createdPlans, setCreatedPlans] = useState([]);
@@ -22,11 +22,12 @@ function UserHomePage({ getPublicPlans, plans, formatDate }) {
 
   const getCreatedPlans = () => {
     console.log(createdPlans);
-    
+
     axios
       .get(
-        `${import.meta.env.VITE_API_URL}/auth/user/${user._id}/created-plans`, {
-          headers: { Authorization: `Bearer ${storedToken}`},
+        `${import.meta.env.VITE_API_URL}/auth/user/${user._id}/created-plans`,
+        {
+          headers: { Authorization: `Bearer ${storedToken}` },
         }
       )
       .then((response) => {
@@ -59,35 +60,53 @@ function UserHomePage({ getPublicPlans, plans, formatDate }) {
 
   return (
     <main className="user-homepage">
-        <h1 className="user-homepage__title">{`Hola, ${user.name} 👋`}</h1>
-      <h1 className="user-homepage__subtitle" >Mis planes</h1>
+      <h1 className="user-homepage__title">{`Hola, ${user.name} 👋`}</h1>
+      <h1 className="user-homepage__subtitle">Mis planes</h1>
       <div className="user-homepage-my-plans">
-      
         <h3 className="user-homepage-my-plans__title" onClick={toggleCreated}>
-          {createdOpen ? <img src={arrowDown}/> : <img src={arrowRight}/>} Mis planes creados
+          {createdOpen ? <img src={arrowDown} /> : <img src={arrowRight} />} Mis
+          planes creados
         </h3>
-        {createdOpen &&  (createdPlans.length > 0 ? (
-          <PlanList className="plan-list" plans={createdPlans} formatDate={formatDate} />
-        ) : (
-          <p className="user-homepage__no-created-plan-message">Aún no has creado planes</p>
-        ))}
+        {createdOpen &&
+          (createdPlans.length > 0 ? (
+            <PlanList
+              className="plan-list"
+              plans={createdPlans}
+              formatDate={formatDate}
+            />
+          ) : (
+            <p className="user-homepage__no-created-plan-message">
+              Aún no has creado planes
+            </p>
+          ))}
       </div>
-      <div className="user-homepage-joined-plan" >
+      <div className="user-homepage-joined-plan">
         <h3 className="user-homepage-joined-plan__title" onClick={toggleJoined}>
-          {joinedOpen ? <img src={arrowDown}/> : <img src={arrowRight}/>} Planes a los que asisto
+          {joinedOpen ? <img src={arrowDown} /> : <img src={arrowRight} />}{" "}
+          Planes a los que asisto
         </h3>
-        {joinedOpen && 
-        (joinedPlans.length > 0 ? (
-          <PlanList plans={joinedPlans} formatDate={formatDate} />
-        ) : (
-          <p className="user-homepage__no-created-plan-message">Aún no te has unido a ningún plan</p>
-        ))}
+        {joinedOpen &&
+          (joinedPlans.length > 0 ? (
+            <PlanList plans={joinedPlans} formatDate={formatDate} />
+          ) : (
+            <p className="user-homepage__no-created-plan-message">
+              Aún no te has unido a ningún plan
+            </p>
+          ))}
       </div>
-      <div className="user-homepage-find-plans"> 
-        <h3 className="user-homepage-find-plans__title" onClick={togglePublic}>{publicOpen ? <img src={arrowDown}/> : <img src={arrowRight}/>}Buscar planes</h3>
+      <div className="user-homepage-find-plans">
+        <h3 className="user-homepage-find-plans__title" onClick={togglePublic}>
+          {publicOpen ? <img src={arrowDown} /> : <img src={arrowRight} />}
+          Buscar planes
+        </h3>
         {publicOpen && <PlanList plans={plans} formatDate={formatDate} />}
       </div>
-      <button className="user-homepage__btn" onClick={() => navigate("/new-plan")}>Crea tu plan</button>
+      <button
+        className="user-homepage__btn"
+        onClick={() => navigate("/new-plan")}
+      >
+        Crea tu plan
+      </button>
     </main>
   );
 }

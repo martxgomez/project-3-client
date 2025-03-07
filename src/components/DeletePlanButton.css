@@ -1,0 +1,8 @@
+.delete-plan__button {
+    border-radius: 10px;
+    background-color: #a74d4a;
+    color: #ffffff;
+  width: 90px;
+  height: 30px;
+  box-shadow: none !important;
+  }

@@ -3,6 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
 import { UserContext } from "../context/UserContext";
 
+import "./DeletePlanButton.css"
+
 function DeletePlanButton() {
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [showConfirmation, setShowConfirmation] = useState(false);
@@ -31,8 +33,8 @@ function DeletePlanButton() {
   };
 
   return (
-    <div className="delete-button">
-      <button onClick={() => setShowConfirmation(true)}>🗑️</button>
+    <div>
+      <button onClick={() => setShowConfirmation(true)} className="delete-plan__button">Borrar plan</button>
       {showConfirmation && (
         <div className="pop-up-container">
           <div className="pop-up-content">

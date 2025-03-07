@@ -8,12 +8,18 @@
     background-color: rgb(233, 230, 225);
     height: 100vh;
     overflow: auto;
-    display: block;
-    visibility: visible;
+
+    h3, h4{
+      color: #a74d4a;
+
+    }
+    
+    
   }
   
   .create-plan__title {
-    margin-bottom: 16px;
+    margin-top: 7rem;;
+    
     font-size: 28px;
     color:  rgb(152,82,77);
 
@@ -56,7 +62,7 @@
     padding: 16px 24px;
     font-size: 16px;
     margin-top: 1.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
   }
   
 

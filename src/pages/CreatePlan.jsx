@@ -47,6 +47,7 @@ function CreatePlan() {
         authUser();
         setPlanId(response.data._id);
         setModalOpen(true)
+        console.log("Datos enviados:", requestBody);
       })
       .catch((error) => {
         const errorDescription = error.response.data.message;
@@ -100,7 +101,7 @@ function CreatePlan() {
           <option value="once">Una vez</option>
         </select>
 
-        <label>Imagen</label>
+        <label><h3>Imagen</h3></label>
         <input
           type="text"
           name=""

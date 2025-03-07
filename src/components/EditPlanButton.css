@@ -1,0 +1,13 @@
+.edit-plan__button {
+    border-color: #a74d4a;
+    background-color: white;
+    color: #a74d4a;
+    border-radius: 10px;
+    margin-right: 1rem;
+    width: 100px;
+    height: 30px;
+    box-shadow: none !important;
+    outline:#a74d4a 1px;
+    
+    
+}

@@ -3,6 +3,9 @@ import axios from "axios";
 import { useState, useEffect, useContext } from "react";
 import { UserContext } from "../context/UserContext";
 
+//CSS
+import "./Comments.css"
+
 function Comments({ planId }) {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
@@ -74,18 +77,20 @@ function Comments({ planId }) {
 
   return (
     <>
+    <div className="comments">
       <h3>Comentarios</h3>
 
-      <form onSubmit={handleCreateComment}>
-        <input
+      <form onSubmit={handleCreateComment} className="comments__form">
+        <input className="comments__form__textarea"
           type="text"
           name="Details"
           value={newComment}
           onChange={handleDetails}
           placeholder="Añade tu comentario"
         />
-        <button type="submit">⬆︎</button>
+        <button type="submit" className="comments__form__button">⬆︎</button>
       </form>
+      </div>
 
       {comments.length === 0 ? (
         <p>Aún no hay comentarios</p>
@@ -94,7 +99,7 @@ function Comments({ planId }) {
           {comments
             .slice(0, showComments ? comments.length : 3)
             .map((comment) => (
-              <div key={comment._id}>
+              <div key={comment._id} className="comments__comments">
                 <img
                   src={comment.user.image}
                   alt={`Foto de ${comment.user.name}`}
@@ -103,8 +108,8 @@ function Comments({ planId }) {
                 <b>{comment.user.name}</b>
                 <p>{comment.details}</p>
                 {user && (
-                  <button onClick={() => handleDeleteComment(comment._id)}>
-                    🗑️
+                  <button onClick={() => handleDeleteComment(comment._id)} className="comments__delete-button">
+                    Borrar comentario
                   </button>
                 )}
               </div>

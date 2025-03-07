@@ -1,6 +1,7 @@
 import githubIcon from "../assets/github-icon.svg";
 import gmailIcon from "../assets/gmail-icon.svg";
 import linkedinIcon from "../assets/linkedin-app-icon.svg";
+import githubIconNegro from "../assets/github-icon_negro.png";
 import "./AboutUs.css";
 
 function AboutUs() {
@@ -44,7 +45,7 @@ function AboutUs() {
           className="about-us__contact-link"
           href="https://github.com/tmartin87"
         >
-          <img src={githubIcon} alt="Github Tomás" /> <p>codeHaunter</p>
+          <img src={githubIconNegro} alt="Github Tomás" /> <p>codeHaunter</p>
         </a>
         <a
           className="about-us__contact-link"
@@ -65,7 +66,7 @@ function AboutUs() {
           className="about-us__contact-link"
           href="https://github.com/martxgomez"
         >
-          <img src={githubIcon} alt="Github Marta" /> <p>martxgomez</p>
+          <img src={githubIconNegro} alt="Github Marta" /> <p>martxgomez</p>
         </a>
         <a
           className="about-us__contact-link"
@@ -87,7 +88,7 @@ function AboutUs() {
           className="about-us__contact-link"
           href="https://github.com/rferramola"
         >
-          <img src={githubIcon} alt="Github Roxana" /> <p>rferramola</p>
+          <img src={githubIconNegro} alt="Github Roxana" /> <p>rferramola</p>
         </a>
         <a
           className="about-us__contact-link"

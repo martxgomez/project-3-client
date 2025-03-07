@@ -1,5 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 
+import "./EditPlanButton.css"
+
 function EditPlanButton() {
   const navigate = useNavigate();
 
@@ -10,8 +12,8 @@ function EditPlanButton() {
   };
 
   return (
-    <div className="edit-btn">
-      <button onClick={handleEditPlanButton}>Editar</button>
+    <div >
+      <button onClick={handleEditPlanButton} className="edit-plan__button">Editar plan</button>
     </div>
   );
 }
