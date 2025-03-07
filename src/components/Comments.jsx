@@ -101,11 +101,6 @@ function Comments({ planId, isCurrentOwnerPlanOwner }) {
             .slice(0, showComments ? comments.length : 3)
             .map((comment) => (
               <div key={comment._id} className="comments__comments">
-                <img
-                  src={comment.user.image}
-                  alt={`Foto de ${comment.user.name}`}
-                />
-
                 <b>{comment.user.name}</b>
                 <p>{comment.details}</p>
                 {comment?.user?._id === user?._id && (

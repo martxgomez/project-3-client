@@ -1,7 +1,7 @@
 //HOOKS
 import axios from "axios";
 import { useState, useEffect, useContext } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, Navigate, useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import "./PlanDetails.css";
 import calendar from "../assets/calendar.svg";
@@ -22,8 +22,9 @@ function PlanDetails({ formatDate }) {
   const [joined, setJoined] = useState(false);
 
   const { user } = useContext(UserContext);
-  const isCurrentOwnerPlanOwner = plan && plan.user._id === user._id;
+  const isCurrentOwnerPlanOwner = plan && plan.user?._id === user?._id;
 
+const navigate = useNavigate();
   console.log({isCurrentOwnerPlanOwner, plan, user})
 
   //GET DATA
@@ -58,7 +59,11 @@ function PlanDetails({ formatDate }) {
     setJoined(plansId.includes(_id));
   }
 
-  const handleJoinPlan = () => {
+    const handleJoinPlan = () => {
+      if (!user || !user._id) {
+        navigate("/log-in");
+        return;
+      }
     const requestBody = { planId: plan._id };
     const storedToken = localStorage.getItem("authToken");
 
@@ -78,30 +83,14 @@ function PlanDetails({ formatDate }) {
       );
   };
 
-  const handleAttendance = (attendance) => {
-    if (attendance.length === 0) {
-      return (
-        <>
-          <p>Aún no hay asistentes</p>
-        </>
-      );
-    } else {
-      const attendantsFilterArray = attendance.slice(0, 3);
-
-      return attendantsFilterArray.map((attendant) => (
-        <div key={attendant.id}>
-          <img src={attendant.image} alt={`Foto de ${attendant.name}`} />
-        </div>
-      ));
-    }
-  };
-
   return (
     <>
       <section className="plan-details">
         <img
           className="plan-details__image"
           src={plan.image}
+
+          
           alt={plan.image}
         />
         <button className="plan-details__join-button" onClick={handleJoinPlan}>
@@ -127,10 +116,7 @@ function PlanDetails({ formatDate }) {
       
       {plan.location && <Map location={plan.location} />}
      {isCurrentOwnerPlanOwner &&  <div className="plan-details__buttons"><DeletePlanButton /><EditPlanButton /></div>}
-      <section className="plan-details__attendance">
-        <h3>Asistentes:</h3>
-        <>{handleAttendance(plan.attendance)}</>
-      </section>
+     
       
 
       <Comments planId={planId} isCurrentOwnerPlanOwner={isCurrentOwnerPlanOwner}/>

@@ -56,7 +56,7 @@ function Signup() {
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p>¿Tienes ya una cuenta?</p>
-      <Link to={"/login"}> Inicia sesión</Link>
+      <Link to={"/log-in"}> Inicia sesión</Link>
     </div>
   );
 }

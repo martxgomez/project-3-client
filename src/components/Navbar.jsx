@@ -18,7 +18,9 @@ function Navbar({ onClick, iconSource })  {
   if (!user) {
     return (
       <div className="nav-bar">
-        <img className="nav-bar__logo" src={Logo} alt="Logo prueba" />
+        <NavLink to="/">
+          <img className="nav-bar__logo" src={Logo} alt="Logo prueba" />
+        </NavLink>
         <NavLink to="/log-in">
           {" "}
           <button className="nav-bar__iniciar-button"> Inicia sesión</button>
@@ -33,7 +35,9 @@ function Navbar({ onClick, iconSource })  {
     return (
       <div className="nav-bar">
         <Menubutton onClick={onClick} iconSource={iconSource} />
-        <img className="nav-bar__logo" src={Logo} alt="Logo prueba" />
+        <NavLink to="/user-homepage/">
+          <img className="nav-bar__logo" src={Logo} alt="Logo prueba" />
+        </NavLink>
       </div>
     );
   }
