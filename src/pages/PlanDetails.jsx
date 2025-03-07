@@ -1,7 +1,7 @@
 //HOOKS
 import axios from "axios";
 import { useState, useEffect, useContext } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, Navigate, useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import "./PlanDetails.css";
 import calendar from "../assets/calendar.svg";
@@ -22,6 +22,7 @@ function PlanDetails({ formatDate }) {
   const [joined, setJoined] = useState(false);
 
   const { user } = useContext(UserContext);
+  const navigate = useNavigate();
 
   //GET DATA
   useEffect(() => {
@@ -41,7 +42,6 @@ function PlanDetails({ formatDate }) {
           setLoading(false);
         });
     };
-    
 
     getPlan();
   }, [planId]);
@@ -61,13 +61,16 @@ function PlanDetails({ formatDate }) {
 
     axios
       .put(
-        `${import.meta.env.VITE_API_URL}/auth/${user._id}/my-plans`,
+        `${import.meta.env.VITE_API_URL}/auth/user/${user._id}/my-plans`,
         requestBody,
         {
           headers: { Authorization: `Bearer ${storedToken}` },
         }
       )
       .then(() => {
+        if (!user) {
+          navigate("/log-in");
+        }
         setJoined(true);
       })
       .catch((error) =>
