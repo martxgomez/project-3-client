@@ -22,6 +22,9 @@ function PlanDetails({ formatDate }) {
   const [joined, setJoined] = useState(false);
 
   const { user } = useContext(UserContext);
+  const isCurrentOwnerPlanOwner = plan && plan.user._id === user._id;
+
+  console.log({isCurrentOwnerPlanOwner, plan, user})
 
   //GET DATA
   useEffect(() => {
@@ -123,14 +126,14 @@ function PlanDetails({ formatDate }) {
       </section>
       
       {plan.location && <Map location={plan.location} />}
-      <div className="plan-details__buttons"><DeletePlanButton /><EditPlanButton /></div>
+     {isCurrentOwnerPlanOwner &&  <div className="plan-details__buttons"><DeletePlanButton /><EditPlanButton /></div>}
       <section className="plan-details__attendance">
         <h3>Asistentes:</h3>
         <>{handleAttendance(plan.attendance)}</>
       </section>
       
 
-      <Comments planId={planId} />
+      <Comments planId={planId} isCurrentOwnerPlanOwner={isCurrentOwnerPlanOwner}/>
     
       
       <Link to="/" className="plan-details__back-button">

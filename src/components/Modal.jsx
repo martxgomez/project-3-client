@@ -31,15 +31,21 @@ function Modal({ isOpen, onChangeModal, planId }) {
           Comparte con tus amigos y familiares
         </h2>
         <img className="modal__whatsapp-icon" src={iconWhatsapp} />
-        <a
-      
-          className="modal__whatsapp-btn"
-          onClick={whatsappUrl}
-        >
+        <a href={whatsappUrl()} className="modal__whatsapp-btn">
           Whatsapp
         </a>
         <img className="modal__link-icon" src={iconLink} />
-        <button className="modal__link-btn" onClick={() => console.log(url)}>
+        <button
+          className="modal__link-btn"
+          onClick={() => {
+            navigator.clipboard
+              .writeText(url)
+              .then(() => alert("Enlace copiado al portapapeles"))
+              .catch((err) =>
+                console.error("Error al copiar el enlace: ", err)
+              );
+          }}
+        >
           Copiar enlace
         </button>
       </div>

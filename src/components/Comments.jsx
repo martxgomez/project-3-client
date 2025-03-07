@@ -6,7 +6,7 @@ import { UserContext } from "../context/UserContext";
 //CSS
 import "./Comments.css"
 
-function Comments({ planId }) {
+function Comments({ planId, isCurrentOwnerPlanOwner }) {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
   const [showComments, setShowComments] = useState(false);
@@ -52,16 +52,17 @@ function Comments({ planId }) {
       });
   };
 
-  const handleDeleteComment = (commentId) => {
+  const handleDeleteComment = (comment) => {
     const storedToken = localStorage.getItem("authToken");
     if (user && user._id) {
-      if (commentId.user._id === user._id) {
+      if (comment?.user?._id === user?._id) {
         axios
-          .delete(`${import.meta.env.VITE_API_URL}/api/comments/${commentId}`, {
+          .delete(`${import.meta.env.VITE_API_URL}/api/comments/${comment._id}`, {
             headers: { Authorization: `Bearer ${storedToken}` },
           })
           .then((response) => {
             getComments();
+
           })
           .catch((error) => {
             const errorDescription = error.response.data.message;
@@ -107,8 +108,8 @@ function Comments({ planId }) {
 
                 <b>{comment.user.name}</b>
                 <p>{comment.details}</p>
-                {user && (
-                  <button onClick={() => handleDeleteComment(comment._id)} className="comments__delete-button">
+                {comment?.user?._id === user?._id && (
+                  <button onClick={() => handleDeleteComment(comment)} className="comments__delete-button">
                     Borrar comentario
                   </button>
                 )}
