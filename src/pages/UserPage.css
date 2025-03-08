@@ -24,3 +24,10 @@
     margin-top: 1.5rem;
     margin-bottom: 1rem;
   }
+
+
+  @media (min-width: 1200px) {
+    .user-page {
+    min-height:600px;
+  }
+}

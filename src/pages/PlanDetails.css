@@ -99,10 +99,10 @@
   
 .plan-details__image {
   display: flex;
-  width: 100%; /* Mejor usar un ancho relativo */
-  max-width: 1200px; /* Asegurar que no supere este tamaño */
-  justify-content: center; /* Centrar horizontalmente */
-  align-items: center; /* Centrar verticalmente si es necesario */
+  width: 100%; 
+  max-width: 1200px;
+  justify-content: center;
+  align-items: center; 
 }
 
 .plan-details__details {
@@ -115,22 +115,22 @@
 
 .plan-details__join-button {
     width: auto;
-    padding: 15px 20px; /* Aumentar el padding */
-    font-size: 18px; /* Aumentar el tamaño de la fuente */
+    padding: 15px 20px; 
+    font-size: 18px;
 }
 
 .plan-details__details__date,
 .plan-details__details__location {
-    font-size: 16px; /* Aumentar el tamaño de la fuente */
+    font-size: 16px; 
 }
 
 .plan-details__buttons {
     display: flex;
-    gap: 15px; /* Aumentar el espacio entre los botones */
+    gap: 15px; 
 }
 
 .plan-details__back-button {
     margin: 2rem;
-    align-items: flex-start; /* Alinear el texto a la izquierda */
+    align-items: flex-start; 
 }
 }
