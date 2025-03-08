@@ -112,9 +112,9 @@ const navigate = useNavigate();
           <h4>Detalles:</h4>
           <p>{plan.details}</p>
         </div>
-      </section>
+     
       
-      {plan.location && <Map location={plan.location} />}
+        <div className="plan-details__map">{plan.location && <Map location={plan.location} />}</div>
      {isCurrentOwnerPlanOwner &&  <div className="plan-details__buttons"><DeletePlanButton /><EditPlanButton /></div>}
      
       
