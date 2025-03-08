@@ -1,6 +1,4 @@
-.plan-details {
-  
-}
+
 
 .plan-details__image {
   width: 400px;
@@ -21,9 +19,6 @@
 
 }
 
-.plan-details__details{
-  
-}
 
 
 
@@ -94,6 +89,7 @@
 
   .plan-details__map {
     max-width: 1200px;
+    margin-bottom: 1rem;
     
 }
   
