@@ -1,7 +1,3 @@
-
-
-
-
 # 📍Nexo 
 
 **Nexo** es una SPA diseñada para ayudarte a crear, organizar y compartir planes con tus amigos. Ya sea que estés planeando una reunión, una actividad o cualquier otro tipo de evento, Nexo te permite crear planes personalizados, invitando a amigos a unirse. Además, puedes elegir si tu plan será público o privado para compartirlo con más personas o mantenerlo exclusivo.
@@ -61,39 +57,6 @@ Crea un archivo .env en la raíz del proyecto y añade la siguiente variable:
    ```
 El frontend estará disponible en http://localhost:3000.
 
-### Backend
-1. **Clonar el repositorio del backend**
- ```bash
-  git clone https://github.com/tmartin87/project-3-server.git
-cd project-3-server
-   ```
-2. **Instalar dependencias:**
- ```bash
-  git clone https://github.com/tmartin87/project-3-server.git
-cd project-3-server
-   ```
-3. **Configurar variables de entorno:**
-Crea un archivo .env en la raíz del proyecto y añade las siguientes variables:
- ```bash
- PORT=5000
-MONGO_URI=mongodb://localhost:27017/project3
-JWT_SECRET=your_jwt_secret
-   ```
-4. **Ejecutar el servidor:**
- ```bash
-npm startﬁ
-   ```
-El backend estará disponible en http://localhost:5000.
-
-
-## 🗂️ Modelos (Colecciones)
-
-La base de datos de Nexo está estructurada en las siguientes colecciones:
-
-- **👤 Usuarios**: Almacena información de los usuarios registrados, como nombre, correo electrónico y contraseña hasheada.
-- **🗓️ Planes**: Contiene los detalles de cada plan creado, incluyendo título, descripción, fecha, hora, privacidad (público o privado) y la lista de participantes.
-- **💬 Comentarios**: Permite a los usuarios dejar comentarios en los planes para interactuar y coordinar mejor los eventos.
-
 ## 🛤️ Rutas Principales
 
 Nexo utiliza **React Router** para la navegación dentro de la aplicación. A continuación, se detallan las rutas principales:
@@ -122,17 +85,9 @@ Algunas rutas están protegidas:
 - **Axios**: Cliente HTTP para realizar peticiones al backend.
 - **Bootstrap**: Framework de CSS para estilos responsivos.
 
-### Backend
-- **Node.js**: Entorno de ejecución para JavaScript.
-- **Express.js**: Framework para construir aplicaciones web y APIs.
-- **MongoDB**: Base de datos NoSQL para almacenar datos.
-- **Mongoose**: ODM (Object Data Modeling) para MongoDB.
-- **JWT**: Autenticación basada en tokens.
-
 ### Herramientas Adicionales
 - **Git**: Control de versiones.
 - **GitHub**: Plataforma para alojar y gestionar el código.
-- **Postman**: Pruebas de la API durante el desarrollo.
 - **Visual Studio Code**: Editor de código utilizado para el desarrollo.
 
 
@@ -155,6 +110,9 @@ Algunas rutas están protegidas:
 - [ ] Añadir más funcionalidades fuera del MVP (por ejemplo, búsqueda avanzada, filtros, etc.).
 - [ ] Optimización del rendimiento del backend.
 - [ ] Implementación de un sistema de notificaciones en tiempo real.
+
+## 🔗 Enlace a repositorio de Backend
+https://github.com/tmartin87/project-3-server
 
 ## 📩 Contact
 
