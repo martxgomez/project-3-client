@@ -33,7 +33,6 @@ const Map = ({ location }) => {
         console.error("Error al obtener coordenadas:", error);
       });
   };
-  console.log(`Buscando coordenadas para: ${location}`)
 
   if (!locationCoords) {
     return <p>Cargando mapa...</p>;

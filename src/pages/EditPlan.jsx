@@ -27,8 +27,6 @@ function EditPlan() {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
-        console.log(response.data);
-
         const planData = response.data;
         setTitle(planData.title);
         setDetails(planData.details);
@@ -37,7 +35,6 @@ function EditPlan() {
         setfrequency(planData.frequency);
         setImage(planData.image);
 
-        // Formatear la fecha a "YYYY-MM-DD"
         if (planData.date) {
           const formattedDate = planData.date.split("T")[0];
           setDate(formattedDate);
@@ -92,10 +89,14 @@ function EditPlan() {
       <h1 className="edit-plan__title">Actualizar Plan</h1>
 
       <form onSubmit={handleEditPlanSubmit}>
-        <label><h3>Titulo:</h3></label>
+        <label>
+          <h3>Titulo:</h3>
+        </label>
         <input type="text" name="Title" value={title} onChange={handleTitle} />
 
-        <label><h3>Detalles:</h3></label>
+        <label>
+          <h3>Detalles:</h3>
+        </label>
         <input
           type="text"
           name="Details"
@@ -103,10 +104,14 @@ function EditPlan() {
           onChange={handleDetails}
         />
 
-        <label><h3>Fecha:</h3></label>
+        <label>
+          <h3>Fecha:</h3>
+        </label>
         <input type="Date" name="Date" value={date} onChange={handleDate} />
 
-        <label><h3>Ubicación:</h3></label>
+        <label>
+          <h3>Ubicación:</h3>
+        </label>
         <input
           type="text"
           name="Location"
@@ -114,7 +119,9 @@ function EditPlan() {
           onChange={handleLocation}
         />
 
-        <label><h3>Frecuencia:</h3></label>
+        <label>
+          <h3>Frecuencia:</h3>
+        </label>
         <select value={frequency} onChange={handlefrequency}>
           <option value="">Seleccione una opción</option>
           <option value="daily">Diario</option>
@@ -123,14 +130,18 @@ function EditPlan() {
           <option value="once">Una vez</option>
         </select>
 
-        <label><h3>Imagen:</h3></label>
+        <label>
+          <h3>Imagen:</h3>
+        </label>
         <input type="text" name="" value={image} onChange={handleImage} />
         <div className="edit-plan__private">
           <div className="edit-plan__text">
-            <label><h4>Es privado</h4></label>
+            <label>
+              <h4>Es privado</h4>
+            </label>
           </div>
           <input
-          className="checkbox"
+            className="checkbox"
             type="checkbox"
             name="Is Private"
             checked={isPrivate}
