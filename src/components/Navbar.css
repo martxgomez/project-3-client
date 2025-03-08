@@ -39,3 +39,21 @@
   
 }
 
+@media (min-width: 1200px) {
+  .nav-bar {
+    padding: 10px 15px;
+    justify-content:space-around;
+      
+  }
+
+  .nav-bar__logo {
+    height: 25px;
+    margin-right: 1rem;
+  }
+
+  .nav-bar__iniciar-button, .nav-bar__registrate-button {
+    width: 140px;
+    height: 30px;
+    font-size: 1.2rem; 
+  }
+}

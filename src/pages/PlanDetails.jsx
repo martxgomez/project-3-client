@@ -125,6 +125,8 @@ const navigate = useNavigate();
       <Link to="/" className="plan-details__back-button">
        <h4> ←Volver</h4>
       </Link>
+      </section>
+      
     </>
   );
 }
