@@ -1,4 +1,4 @@
-//Import images
+//IMPORTS
 import errorImage from "../assets/404.png"
 
 function ErrorPage() {

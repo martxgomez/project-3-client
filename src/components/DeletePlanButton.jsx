@@ -1,9 +1,11 @@
+//HOOKS
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
 import { UserContext } from "../context/UserContext";
 
-import "./DeletePlanButton.css"
+//STYLE
+import "./DeletePlanButton.css";
 
 function DeletePlanButton() {
   const [errorMessage, setErrorMessage] = useState(undefined);
@@ -34,7 +36,12 @@ function DeletePlanButton() {
 
   return (
     <div>
-      <button onClick={() => setShowConfirmation(true)} className="delete-plan__button">Borrar plan</button>
+      <button
+        onClick={() => setShowConfirmation(true)}
+        className="delete-plan__button"
+      >
+        Borrar plan
+      </button>
       {showConfirmation && (
         <div className="pop-up-container">
           <div className="pop-up-content">

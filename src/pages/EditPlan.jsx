@@ -1,7 +1,10 @@
+//HOOKS
 import { useState, useContext, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
+
+//STYLE
 import "./EditPlan.css";
 
 function EditPlan() {
@@ -13,19 +16,6 @@ function EditPlan() {
   const [frequency, setfrequency] = useState("");
   const [image, setImage] = useState();
   const [errorMessage, setErrorMessage] = useState(undefined);
-
-  // Hay que hacer una get request para recibir el plan
-
-  // useEffect ...
-  // axios.get -> API PLANS. El id del plan lo obtenemos de los params
-  // dentro del useeffect rellenamos todos los campos con la respuesta de la api
-  // tenemos que obtener el token del localstorage para añadir el header
-  /*
-  setDetails()
-  setLocation
-  etc
-  ...
-  */
 
   const { planId } = useParams();
 

@@ -1,20 +1,17 @@
 //STYLE
-//import "./Navbar.css";
+import "./Navbar.css";
 
-//IMPORTS
+//HOOKS
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
-import Logo from "../assets/logo_ok.png";
-
-import "./Navbar.css"
-
 
 //COMPONENTS
 import Menubutton from "./MenuButton";
+import Logo from "../assets/logo_ok.png";
 
-function Navbar({ onClick, iconSource })  {
-  const {user} = useContext(UserContext)
+function Navbar({ onClick, iconSource }) {
+  const { user } = useContext(UserContext);
   if (!user) {
     return (
       <div className="nav-bar">
@@ -27,7 +24,9 @@ function Navbar({ onClick, iconSource })  {
         </NavLink>
         <NavLink to="/sign-up">
           {" "}
-          <button className="nav-bar__registrate-button">Registrate</button>{" "}
+          <button className="nav-bar__registrate-button">
+            Registrate
+          </button>{" "}
         </NavLink>
       </div>
     );

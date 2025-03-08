@@ -1,9 +1,14 @@
+//HOOKS
 import axios from "axios";
 import PlanList from "../components/plans/PlanList";
 import { useEffect, useState, useContext } from "react";
 import { UserContext } from "../context/UserContext";
-import "./UserHomePage.css";
 import { useNavigate } from "react-router-dom";
+
+//STYLE
+import "./UserHomePage.css";
+
+//COMPONENTS
 import arrowDown from "../assets/arrow-down.svg";
 import arrowRight from "../assets/arrow-right.svg";
 

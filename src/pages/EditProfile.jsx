@@ -1,7 +1,10 @@
+//HOOKS
 import { useEffect, useState, useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+
+//STYLE
 import "./EditProfile.css"
 
 function EditProfile() {
@@ -25,7 +28,6 @@ function EditProfile() {
         navigate("/user-details");
       })
       .catch((error) => {
-        //const errorDescription = error.response.data.message;
         console.error("Error al acceder:", error);
       });
   };

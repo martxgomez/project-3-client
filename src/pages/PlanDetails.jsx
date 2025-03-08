@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState, useEffect, useContext } from "react";
 import { useParams, Link, Navigate, useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
-import "./PlanDetails.css";
+
 import calendar from "../assets/calendar.svg";
 import logoLocation from "../assets/icono_ubicacion.png";
 
@@ -14,6 +14,7 @@ import DeletePlanButton from "../components/DeletePlanButton";
 import EditPlanButton from "../components/EditPlanButton";
 
 //STYLE
+import "./PlanDetails.css";
 
 function PlanDetails({ formatDate }) {
   const { planId } = useParams();
@@ -24,10 +25,8 @@ function PlanDetails({ formatDate }) {
   const { user } = useContext(UserContext);
   const isCurrentOwnerPlanOwner = plan && plan.user?._id === user?._id;
 
-const navigate = useNavigate();
-  console.log({isCurrentOwnerPlanOwner, plan, user})
+  const navigate = useNavigate();
 
-  //GET DATA
   useEffect(() => {
     const getPlan = () => {
       setLoading(true);
@@ -45,7 +44,6 @@ const navigate = useNavigate();
           setLoading(false);
         });
     };
-    
 
     getPlan();
   }, [planId]);
@@ -59,11 +57,11 @@ const navigate = useNavigate();
     setJoined(plansId.includes(_id));
   }
 
-    const handleJoinPlan = () => {
-      if (!user || !user._id) {
-        navigate("/log-in");
-        return;
-      }
+  const handleJoinPlan = () => {
+    if (!user || !user._id) {
+      navigate("/log-in");
+      return;
+    }
     const requestBody = { planId: plan._id };
     const storedToken = localStorage.getItem("authToken");
 
@@ -89,8 +87,6 @@ const navigate = useNavigate();
         <img
           className="plan-details__image"
           src={plan.image}
-
-          
           alt={plan.image}
         />
         <button className="plan-details__join-button" onClick={handleJoinPlan}>
@@ -112,21 +108,26 @@ const navigate = useNavigate();
           <h4>Detalles:</h4>
           <p>{plan.details}</p>
         </div>
-     
-      
-        <div className="plan-details__map">{plan.location && <Map location={plan.location} />}</div>
-     {isCurrentOwnerPlanOwner &&  <div className="plan-details__buttons"><DeletePlanButton /><EditPlanButton /></div>}
-     
-      
 
-      <Comments planId={planId} isCurrentOwnerPlanOwner={isCurrentOwnerPlanOwner}/>
-    
-      
-      <Link to="/" className="plan-details__back-button">
-       <h4> ←Volver</h4>
-      </Link>
+        <div className="plan-details__map">
+          {plan.location && <Map location={plan.location} />}
+        </div>
+        {isCurrentOwnerPlanOwner && (
+          <div className="plan-details__buttons">
+            <DeletePlanButton />
+            <EditPlanButton />
+          </div>
+        )}
+
+        <Comments
+          planId={planId}
+          isCurrentOwnerPlanOwner={isCurrentOwnerPlanOwner}
+        />
+
+        <Link to="/" className="plan-details__back-button">
+          <h4> ←Volver</h4>
+        </Link>
       </section>
-      
     </>
   );
 }

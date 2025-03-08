@@ -2,7 +2,6 @@
 //STYLE
 import "./Sidebar.css";
 
-
 //HOOKS
 import { useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
@@ -11,18 +10,16 @@ import { UserContext } from "../context/UserContext";
 
 function Sidebar({ isOn, setSidebarOn, toggleSidebar }) {
   const { logOutUser } = useContext(UserContext);
-useEffect(()=>{
-  if (typeof window != 'undefined' && window.document && isOn) {
-    document.body.style.overflow = 'hidden';
-    
-} else{ 
-  document.body.style.overflow = 'visible';
-}
-},[isOn])
+  useEffect(() => {
+    if (typeof window != "undefined" && window.document && isOn) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "visible";
+    }
+  }, [isOn]);
   return (
     <section id="sidebar" className={isOn ? "sidebar-on" : "sidebar-off"}>
-      <Link onClick={() => toggleSidebar(false)} to="/user-homepage">
-      </Link>
+      <Link onClick={() => toggleSidebar(false)} to="/user-homepage"></Link>
 
       <ul className="sidebar__menu">
         <div>
@@ -43,7 +40,8 @@ useEffect(()=>{
           </li>
           <li>
             <NavLink onClick={() => toggleSidebar(false)} to="user-homepage">
-              Mis planes</NavLink>
+              Mis planes
+            </NavLink>
           </li>
         </div>
 

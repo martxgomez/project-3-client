@@ -1,11 +1,13 @@
+//HOOKS
 import { Link } from "react-router-dom";
-import "./PlanCard.css";
-import calendar from "../../assets/calendar.svg"
-import { useState, useContext } from "react"
+import { useState, useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 
+//STYLE
+import "./PlanCard.css";
 
-
+//COMPONENTS
+import calendar from "../../assets/calendar.svg";
 
 function PlanCard({ plan, formatDate }) {
   const { _id, title, date, location, image } = plan;

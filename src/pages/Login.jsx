@@ -1,5 +1,6 @@
-// src/pages/LoginPage.jsx
-import "./Login.css"
+//STYLE
+import "./Login.css";
+
 // HOOKS
 import { useState, useContext } from "react";
 import axios from "axios";
@@ -13,7 +14,6 @@ function Login(props) {
 
   const navigate = useNavigate();
 
- 
   const { storeToken, authUser } = useContext(UserContext);
 
   const handleEmail = (e) => setEmail(e.target.value);
@@ -38,23 +38,28 @@ function Login(props) {
 
   return (
     <div className="login-page">
-    <div>
-      <h1 className="login-page__title">Iniciar sesión</h1>
+      <div>
+        <h1 className="login-page__title">Iniciar sesión</h1>
 
-      <form onSubmit={handleLoginSubmit}>
-        <label>Email:</label>
-        <input type="text" name="email" value={email} onChange={handleEmail} />
+        <form onSubmit={handleLoginSubmit}>
+          <label>Email:</label>
+          <input
+            type="text"
+            name="email"
+            value={email}
+            onChange={handleEmail}
+          />
 
-        <label>Contraseña:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
+          <label>Contraseña:</label>
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={handlePassword}
+          />
 
-        <button type="submit">Inicia sesión</button>
-      </form>
+          <button type="submit">Inicia sesión</button>
+        </form>
       </div>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 

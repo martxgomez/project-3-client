@@ -1,4 +1,7 @@
+//COMPONENTS
 import PlanCard from "./PlanCard";
+
+//STYLE
 import "./PlanList.css"
 
 function PlanList({ plans, formatDate}) {

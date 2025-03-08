@@ -1,7 +1,11 @@
 //STYLE
 import "./Modal.css";
+
+//COMPONENTS
 import iconWhatsapp from "../assets/icon-whatsapp.svg";
 import iconLink from "../assets/icon-link.svg";
+
+//HOOKS
 import { useNavigate } from "react-router-dom";
 
 function Modal({ isOpen, onChangeModal, planId }) {

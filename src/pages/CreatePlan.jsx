@@ -1,8 +1,12 @@
+//STYLE
 import "./CreatePlan.css";
+
 //HOOKS
 import { useState, useContext } from "react";
 import axios from "axios";
 import { UserContext } from "../context/UserContext";
+
+//COMPONENTS
 import Modal from "../components/Modal";
 
 function CreatePlan() {

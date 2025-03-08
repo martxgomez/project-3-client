@@ -1,7 +1,7 @@
+//HOOKS
 import { useNavigate, useParams } from "react-router-dom";
- import { useContext } from "react";
-import { UserContext } from "../context/UserContext";
 
+//STYLE
 import "./EditPlanButton.css"
 
 function EditPlanButton() {

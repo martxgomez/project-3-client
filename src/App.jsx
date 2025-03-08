@@ -1,8 +1,3 @@
-//STYLE
-// import "./App.css";
-import menu from "./assets/menu.svg";
-import closeIcon from "./assets/icon-close.svg";
-
 //ROUTES
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
@@ -18,7 +13,7 @@ import AboutUs from "./pages/AboutUs";
 import EditPlan from "./pages/EditPlan";
 
 //HOOKS
-import { useState, useContext } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 //COMPONENTS
@@ -27,11 +22,12 @@ import Sidebar from "./components/Sidebar";
 import IsPrivate from "./components/isPrivate";
 import IsAnon from "./components/isAnon";
 import Footer from "./components/Footer";
+import menu from "./assets/menu.svg";
+import closeIcon from "./assets/icon-close.svg";
 
 function App() {
   const [sidebarOn, setSidebarOn] = useState(false);
   const [plans, setPlans] = useState([]);
-
 
   const toggleSidebar = () => {
     setSidebarOn(!sidebarOn);
@@ -53,7 +49,10 @@ function App() {
 
   return (
     <>
-      <Navbar onClick={toggleSidebar} iconSource={!sidebarOn? menu : closeIcon} />
+      <Navbar
+        onClick={toggleSidebar}
+        iconSource={!sidebarOn ? menu : closeIcon}
+      />
       <Sidebar
         isOn={sidebarOn}
         setSidebarOn={setSidebarOn}

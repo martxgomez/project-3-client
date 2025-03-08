@@ -1,5 +1,6 @@
 //STYLE
 import "./Signup.css"
+
 //HOOKS
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";

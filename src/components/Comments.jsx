@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState, useEffect, useContext } from "react";
 import { UserContext } from "../context/UserContext";
 
-//CSS
+//STYLE
 import "./Comments.css"
 
 function Comments({ planId, isCurrentOwnerPlanOwner }) {

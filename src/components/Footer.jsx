@@ -1,8 +1,12 @@
 //STYLE
 import "./Footer.css";
+
+//COMPONENTS
 import githubIcon from "../assets/github-icon.svg";
-import { Link } from "react-router-dom";
 import LogoWhite from "../assets/logo_ok_w.png";
+
+//HOOKS
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (

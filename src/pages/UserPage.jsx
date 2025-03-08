@@ -1,15 +1,16 @@
 //HOOKS
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { UserContext } from "../context/UserContext";
-import { useContext } from "react";
-import "./UserPage.css"
+
+//STYLE
+import "./UserPage.css";
 
 function UserPage() {
   const [loading, setLoading] = useState(true);
   const [updatedUser, setUpdatedUser] = useState({});
-  const {authUser, user} = useContext(UserContext);
+  const { authUser, user } = useContext(UserContext);
 
   const navigate = useNavigate();
 
@@ -32,14 +33,19 @@ function UserPage() {
   useEffect(() => {
     getUser();
   }, []);
-  
+
   return (
     <div>
       <div className="user-page">
-      <h2>Tu perfil</h2>
+        <h2>Tu perfil</h2>
         <p>Nombre: {updatedUser.name}</p>
         <p>Email: {updatedUser.email}</p>
-        <button onClick={() => navigate("/user-edit") } className="user-page__button">Edita tu perfil</button>
+        <button
+          onClick={() => navigate("/user-edit")}
+          className="user-page__button"
+        >
+          Edita tu perfil
+        </button>
       </div>
     </div>
   );

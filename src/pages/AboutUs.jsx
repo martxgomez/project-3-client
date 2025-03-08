@@ -1,7 +1,9 @@
-import githubIcon from "../assets/github-icon.svg";
+// IMPORTS
 import gmailIcon from "../assets/gmail-icon.svg";
 import linkedinIcon from "../assets/linkedin-app-icon.svg";
 import githubIconNegro from "../assets/github-icon_negro.png";
+
+//STYLES
 import "./AboutUs.css";
 
 function AboutUs() {
